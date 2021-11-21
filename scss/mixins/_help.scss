@@ -1,0 +1,9 @@
+@mixin hover() {
+  background-color: rgba(140, 140, 140, 0.1);
+  border-radius: 6px;
+}
+
+@mixin headerBtn($width, $height) {
+  width: $width;
+  height: $height;
+}

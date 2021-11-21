@@ -67,7 +67,7 @@
                 <svg class="theme-light header-logo-ico" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z"></path></svg>
             </button>    
             <div class="header-second-user">
-                <button class="header-second-user--login">
+                <button class="btn header-second-user--login" data-path="form-popup">
                    <span>Войти</span>
                 </button>    
             </div>
@@ -76,19 +76,42 @@
       </div>
     </header>
     <div class="container">
-        <button class="btn" data-path="form-popup">
-            Окно1
-        </button>
-	<button class="btn" data-path="me-popup">Окно 2</button>
-
+     
         <div class="modals">
             <div class="modal-overlay">
                 <div class="modal modal--1" data-target="form-popup">
-                    Окно 1
+                   <div class="modal-header">
+                       <h3 class="modal-header--title">Вход</h3>
+                       <button class="modal-close btn">
+                        <span class="MuiButton-label"><svg class="MuiSvgIcon-root c305" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></span>
+                       </button>
+                   </div>
+                   <div class="modal-content">
+                       <form action="" class="modal-content-form">
+                        <div class="header-second--search input input-setting modal-content-form--item">
+                            <input type="text" class="input-setting-field" placeholder="Логин" value="" required>
+                        </div>
+                        <div class="header-second--search input input-setting modal-content-form--item">
+                            <input type="text" class="input-setting-field" placeholder="Пароль" value="" required>
+                        </div>
+                        <div class="modal-content-form-buttons modal-content-form--item">
+                            <button class="btn">
+                                <span>Забыл пароль</span>
+                            </button>
+                            <button class="btn">
+                                <span>Регистрация</span>
+                            </button>
+                        </div>
+                        <input type="submit"class="btn modal-content-form-btn modal-content-form--item" value="войти">
+                       </form>
+                   </div>
                 </div>
             </div>
         </div>
-    
+
+
+
+        
     </div>
     <script src="./js/modal.js"></script>
   </body>
