@@ -158,6 +158,7 @@ h6 {
   top: 0;
   right: 0;
   bottom: 0;
+  z-index: 100;
   background-color: rgba(0, 0, 0, 0.7);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -462,5 +463,21 @@ nav {
 .header-second-user--login:hover {
   background-color: rgba(140, 140, 140, 0.1);
   border-radius: 6px;
+}
+
+.swiper {
+  width: 1000px;
+  height: 300px;
+}
+
+.swiper-slide {
+  width: 33%;
+}
+
+.card {
+  width: 30%;
+  height: 300px;
+  border-radius: 8px;
+  background-color: var(--color-secondary);
 }
 /*# sourceMappingURL=main.css.map */
