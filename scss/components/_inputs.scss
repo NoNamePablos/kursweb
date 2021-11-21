@@ -1,0 +1,44 @@
+.input {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+}
+
+.input-setting {
+  color: rgba(0, 0, 0, 0.87);
+  cursor: text;
+  display: inline-flex;
+  position: relative;
+  font-size: 1rem;
+  box-sizing: border-box;
+  align-items: center;
+  font-family: -apple-system, Nunito Sans, SF Pro Text, SF Pro Icons, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  line-height: 1.1875em;
+  padding: 2px;
+  outline: 2px solid var(--color-tmp);
+
+  &-field {
+    font: inherit;
+    overflow: hidden;
+    color: currentColor;
+    width: 100%;
+    border: 0;
+    height: 1.1875em;
+    margin: 0;
+    display: block;
+    padding: 6px 0 7px;
+    min-width: 0;
+    background: none;
+    box-sizing: content-box;
+    -webkit-tap-highlight-color: transparent;
+    padding: 12.5px 40px 12.5px 10px;
+    &:focus,
+    &:active,
+    &:hover {
+      outline: 2px solid var(--color-border);
+      border-radius: 6px;
+    }
+  }
+}
