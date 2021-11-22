@@ -116,12 +116,6 @@ nav {
   width: 1000px;
   height: 300px;
   &-slide {
-    width: 33%;
+    width: 180px;
   }
-}
-.card {
-  width: 30%;
-  height: 300px;
-  border-radius: 8px;
-  background-color: var(--color-secondary);
 }
