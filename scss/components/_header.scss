@@ -39,11 +39,19 @@ nav {
   align-items: center;
   margin: 0 auto;
   flex-wrap: nowrap;
-
+  box-shadow: 0 2px 17px rgba(0, 0, 0, 0.4);
+  height: 61px;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  padding: 0 20px;
   &-navigation {
     height: 100%;
     display: flex;
     width: 60%;
+    align-items: center;
   }
   &-svg {
     display: block;

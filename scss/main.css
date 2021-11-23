@@ -52,6 +52,10 @@ input {
   outline: none;
 }
 
+p {
+  margin: 0;
+}
+
 h1,
 h2,
 h3,
@@ -358,6 +362,17 @@ nav {
   margin: 0 auto;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+  -webkit-box-shadow: 0 2px 17px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 2px 17px rgba(0, 0, 0, 0.4);
+  height: 61px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  padding: 0 20px;
 }
 
 .header-navigation {
@@ -366,6 +381,9 @@ nav {
   display: -ms-flexbox;
   display: flex;
   width: 60%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .header-svg {
@@ -483,7 +501,6 @@ nav {
   -webkit-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
   overflow: hidden;
-  background-color: var(--color-secondary);
 }
 
 .card-bg {
@@ -566,6 +583,7 @@ nav {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
+  margin: 50px 0;
 }
 
 .films-list {
@@ -583,15 +601,40 @@ nav {
       -ms-flex-direction: column;
           flex-direction: column;
   width: inherit;
-  height: 300px;
+  height: 350px;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
           box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
+.films-item:not(:first-child) {
+  margin-top: 20px;
+}
+
 .films-item-content {
+  margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.films-item-content__setting {
+  font-weight: 700;
+  margin-right: 3px;
+}
+
+.films-item-content__setting:not(:first-child) {
+  margin-top: 10px;
+}
+
+.films-item-content__setting-year {
+  font-weight: normal;
+  line-height: 18px;
+  font-size: 14px;
+}
+
+.films-item-content__settings {
+  height: 100%;
+  width: 75%;
 }
 
 .films-item-content .card {
@@ -607,5 +650,218 @@ nav {
 .films-item--title > a:hover {
   text-decoration: underline;
   color: var(--color-secondary);
+}
+
+.footer {
+  padding: 20px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.footer p > a {
+  color: currentColor;
+}
+
+/**
+   * Form & Checkbox Styles
+   */
+h4 {
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+label {
+  font-weight: 300;
+}
+
+button {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0.4em 0.8em;
+  margin: 0;
+  background: #68b8c4;
+  border: 0;
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 0 none;
+}
+
+.controls {
+  background: #333;
+  padding: 2%;
+}
+
+fieldset {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 1em 0 0;
+  background: #666;
+  padding: 0.5em;
+  border-radius: 3px;
+}
+
+.checkbox {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.checkbox input[type='checkbox'] {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  margin: 0;
+  opacity: 0;
+  z-index: 1;
+}
+
+.checkbox label {
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  padding-left: 1.5em;
+}
+
+.checkbox label:before,
+.checkbox label:after {
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+.checkbox label:before {
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  background: #ddd;
+  border-radius: 3px;
+}
+
+.checkbox label:after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: #68b8c4;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.checkbox input:checked ~ label:after {
+  opacity: 1;
+}
+
+.checkbox input:focus ~ label:before {
+  background: #eee;
+}
+
+.box {
+  border-radius: 4px;
+  -webkit-box-shadow: 6px 7px 28px 0 rgba(16, 16, 16, 0.7);
+          box-shadow: 6px 7px 28px 0 rgba(16, 16, 16, 0.7);
+  min-height: 140px;
+  min-width: calc(22% - 28px);
+  padding: 0 10px;
+  margin: 15px;
+  border-width: 3px;
+  float: left;
+}
+
+.box.alizarin {
+  border: 3px solid #e74c3c;
+}
+
+.box.wisteria {
+  border: 3px solid #8e44ad;
+}
+
+.box.emerland {
+  border: 3px solid #2ecc71;
+}
+
+.box.belizehole {
+  border: 3px solid #2980b9;
+}
+
+.box.sunflower {
+  border: 3px solid #f1c40f;
+}
+
+.text-alizarin {
+  color: #e74c3c;
+}
+
+.text-wisteria {
+  color: #8e44ad;
+}
+
+.text-emerland {
+  color: #2ecc71;
+}
+
+.text-belizehole {
+  color: #2980b9;
+}
+
+.text-sunflower {
+  color: #f1c40f;
+}
+
+.hide {
+  opacity: 1;
+  -webkit-animation-name: a1;
+          animation-name: a1;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes a1 {
+  to {
+    opacity: 0;
+    min-height: 0;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+}
+
+@keyframes a1 {
+  to {
+    opacity: 0;
+    min-height: 0;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
 }
 /*# sourceMappingURL=main.css.map */
