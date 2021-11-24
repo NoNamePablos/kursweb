@@ -144,6 +144,79 @@ h6 {
   border-radius: 6px;
 }
 
+.mycustom {
+  position: relative;
+}
+
+.mycustom input {
+  -webkit-appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 1px;
+  vertical-align: sub;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 1rem;
+  outline: none;
+}
+
+.mycustom input:checked {
+  background-color: #666666;
+  border-color: #666666;
+}
+
+.mycustom input:checked + label {
+  text-decoration: line-through;
+  color: #b3b3b3;
+  font-weight: 600;
+  background-color: #f7f7f7;
+}
+
+.mycustom input:checked:focus, .mycustom input:checked:hover {
+  -webkit-box-shadow: 0 0 0 3px #d9d9d9;
+          box-shadow: 0 0 0 3px #d9d9d9;
+  border-color: #666666;
+}
+
+.mycustom input:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25fYnlfUG9zaGx5YWtvdjEwPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBmaWxsPSIjZmZmZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi4wMDAwMDAsIDI2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNy45OTk5ODc4LDMyLjQgTDEwLjk5OTk4NzgsMjUuNCBDMTAuMjI2Nzg5MSwyNC42MjY4MDE0IDguOTczMTg2NDQsMjQuNjI2ODAxNCA4LjE5OTk4Nzc5LDI1LjQgTDguMTk5OTg3NzksMjUuNCBDNy40MjY3ODkxNCwyNi4xNzMxOTg2IDcuNDI2Nzg5MTQsMjcuNDI2ODAxNCA4LjE5OTk4Nzc5LDI4LjIgTDE2LjU4NTc3NDIsMzYuNTg1Nzg2NCBDMTcuMzY2ODIyOCwzNy4zNjY4MzUgMTguNjMzMTUyOCwzNy4zNjY4MzUgMTkuNDE0MjAxNCwzNi41ODU3ODY0IEw0MC41OTk5ODc4LDE1LjQgQzQxLjM3MzE4NjQsMTQuNjI2ODAxNCA0MS4zNzMxODY0LDEzLjM3MzE5ODYgNDAuNTk5OTg3OCwxMi42IEw0MC41OTk5ODc4LDEyLjYgQzM5LjgyNjc4OTEsMTEuODI2ODAxNCAzOC41NzMxODY0LDExLjgyNjgwMTQgMzcuNzk5OTg3OCwxMi42IEwxNy45OTk5ODc4LDMyLjQgWiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==");
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.mycustom input:focus, .mycustom input:hover {
+  -webkit-box-shadow: 0 0 0 3px #ebebeb;
+          box-shadow: 0 0 0 3px #ebebeb;
+  border-color: #8c8c8c;
+}
+
+.mycustom input label {
+  padding: 0.75rem 1rem 0.75rem calc(1.2rem * 2.25);
+  display: inline-block;
+  font-size: 17px;
+  width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-bottom: 2px solid #ededed;
+  cursor: pointer;
+}
+
+.mycustom input label:hover {
+  border-bottom-color: #adadad;
+}
+
 .btn {
   border: none;
   cursor: pointer;
@@ -321,7 +394,7 @@ body {
 body {
   color: rgba(0, 0, 0, 0.87);
   font-size: 0.875rem;
-  font-family: -apple-system, Nunito Sans, SF Pro Text, SF Pro Icons, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: -apple-system, Nunito Sans, SF Pro Text, SF Pro Icons, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-weight: 400;
   line-height: 1.43;
 }
@@ -863,5 +936,47 @@ fieldset {
     margin: 0;
     border: 0;
   }
+}
+
+.catalog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.catalog-grid {
+  width: 80%;
+  display: -ms-grid;
+  display: grid;
+  row-gap: 20px;
+  grid-column-gap: 20px;
+  -ms-grid-columns: (minmax(50px, 180px))[4];
+      grid-template-columns: repeat(4, minmax(50px, 180px));
+  -ms-grid-rows: 250px;
+      grid-template-rows: 250px;
+}
+
+.catalog-filters {
+  width: 20%;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.catalog-filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.catalog-filter .mycustom {
+  height: 100px;
+  margin-bottom: 10px;
 }
 /*# sourceMappingURL=main.css.map */
