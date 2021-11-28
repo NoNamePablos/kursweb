@@ -1,0 +1,9 @@
+@import url(e:\workProjects\kurs\kursweb\scss\vendor\normalize.css);
+button {
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+}
+/*# sourceMappingURL=vendor.css.map */
