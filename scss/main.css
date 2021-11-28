@@ -217,6 +217,10 @@ h6 {
   border-bottom-color: #adadad;
 }
 
+a {
+  display: block;
+}
+
 .btn {
   border: none;
   cursor: pointer;
@@ -224,6 +228,15 @@ h6 {
   color: inherit;
   width: 44px;
   height: 44px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .btn:hover, .btn:focus {
@@ -556,6 +569,57 @@ nav {
 .header-second-user--login:hover {
   background-color: rgba(140, 140, 140, 0.1);
   border-radius: 6px;
+}
+
+.header-second-user--active {
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header-second-user--active:hover .header-second-user--active-login--list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header-second-user--active-login {
+  width: 50%;
+  color: currentColor;
+  position: relative;
+}
+
+.header-second-user--active-login--item {
+  margin-top: 10px;
+}
+
+.header-second-user--active-login--item:hover {
+  background-color: #e1e1e1;
+  border-radius: 6px;
+}
+
+.header-second-user--active-login--list {
+  width: 200px;
+  background-color: white;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
 }
 
 .swiper {
@@ -978,5 +1042,101 @@ fieldset {
 .catalog-filter .mycustom {
   height: 100px;
   margin-bottom: 10px;
+}
+
+.reset-form {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.reset-form > * + * {
+  margin-top: 20px;
+}
+
+.reset-form .header-second-user--login {
+  margin-top: 20px;
+  height: 48px;
+  width: 240px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.reset-form .header-second-user--login:hover {
+  background-color: var(--color-secondary);
+}
+
+.reset-form .input-setting-field {
+  outline: 1px solid var(--color-primary);
+  border-radius: 6px;
+}
+
+.reset-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main {
+  min-height: calc(100vh - 80px);
+}
+
+.detfilm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.detfilm-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.detfilm-header-description {
+  margin-left: 30px;
+}
+
+.detfilm-video {
+  margin-top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 100px;
 }
 /*# sourceMappingURL=main.css.map */

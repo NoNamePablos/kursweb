@@ -1,3 +1,7 @@
+a {
+  display: block;
+}
+
 .btn {
   border: none;
   cursor: pointer;
@@ -8,6 +12,9 @@
   &:focus {
     @include hover();
   }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-overlay {
