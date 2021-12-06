@@ -45,7 +45,7 @@ function selectAll($table,$params=[]){
 
 function selectOne($table,$params=[]){
     global $pdo;
-    $sql="SELECT * From $table";
+    $sql="SELECT * From `$table`";
     if(!empty($params)){
         $i=0;
         foreach ($params as $key=>$value){
@@ -92,6 +92,7 @@ function insert($table,$params=[]){
 
     $query->execute($params);
     dbCheckError($query);
+    return  $pdo->lastInsertId();
 }
 function update($table,$id,$params){
     global  $pdo;
@@ -133,5 +134,3 @@ $arrData=[
     'email'=>'12312222@mail.ru',
     'age'=>'22',
 ];
-delete('users',3);
-
