@@ -71,9 +71,9 @@
           </div>
             <?php else:?>
                 <div class="header-second-user ">
-                    <a href="login.php" class="btn header-second-user--login" <!--data-path="form-popup"-->>
+                    <button class="btn header-second-user--login" data-path="form-popup">
                         <span>Войти</span>
-                    </a>
+                    </button>
                 </div>
             <?php  endif;?>
         </div>

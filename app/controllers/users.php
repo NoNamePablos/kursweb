@@ -82,6 +82,62 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['btn-log'])){
 }else{
     $emails='';
 }
+if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['btn-update'])){
+    $IdUpdate=$_SESSION['id'];
+    $user=selectOne('users',['id'=>$IdUpdate]);
+    $email=trim($_POST['email']);
+    $age=trim($_POST['age']);
+    $passwordOld=trim($_POST['password-old']);
+    $passwordNew=trim($_POST['password-new']);
+    if($email!=$user['email']){
+        update('users',$IdUpdate,['email'=>$email]);
+    }
+    if($age!=$user['age']&&is_numeric($age)&&$age>0){
+        update('users',$IdUpdate,['age'=>$age]);
+    }
+    if($email!=$user['email']){
+        update('users',$IdUpdate,['email'=>$email]);
+    }
+    if(password_verify($passwordOld,$user['password'])){
+        $setPassword=$password=password_hash($passwordNew,PASSWORD_DEFAULT);
+        update('users',$IdUpdate,['password'=>$setPassword]);
+    }
+}else{
+    $email='';
+
+}
+if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['btn-newpass'])){
+    $email=$_POST['email'];
+    $user=selectOne('users',['email'=>$email]);
+
+
+    if($email===$user['email']){
+        showArr($user);
+        $securitykey=md5(rand(1000,100000));
+        update('users',$user['id'],['change_key'=>$securitykey]);
+        $url='http://kursweb/newpass.php?key='.$securitykey;
+        $message=$user['username'].", был отправлен запрос на востановление пароля!!Для востановления пройлите по ссылке : ". $url." \n";
+        if(mail($user['email'],"Подтвердить действие",$message)){
+            showArr($user['email']);
+        }else{
+            echo 'Error';
+        }
+        header('location: /');
+    }
+
+}
+if($_SERVER['REQUEST_METHOD']==='GET' && isset($_GET['btn-reset'])){
+    $seckey=$_GET['key'];
+    $user=selectOne('users',['change_key'=>$seckey]);
+    if($user){
+        $password=$_GET['password'];
+        update('users',$user['id'],['password'=>password_hash($password,PASSWORD_DEFAULT),'change_key'=>'NULL']);
+        header('location: /');
+
+    }
+
+}
+
    //   $password=password_hash($_POST['password-second'],PASSWORD_DEFAULT);
     /*$id=insert('users',$arrData);
     $lastRow=selectOne('users',['id'=>$id]);*/

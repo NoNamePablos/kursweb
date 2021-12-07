@@ -1,5 +1,6 @@
 <?php
 include 'app/helpers/path.php';
+include 'app/Database/db.php';
 include 'app/controllers/users.php';
 
 ?>

@@ -36,12 +36,17 @@ include 'app/controllers/users.php';
                        </div>
                        <div class="modal-content">
                            <form  method="post" class="modal-content-form">
+                            <!---
                             <div class="header-second--search input input-setting modal-content-form--item">
                                 <input type="text" name="email" class="input-setting-field" placeholder="Логин" value="" required>
                             </div>
                             <div class="header-second--search input input-setting modal-content-form--item">
                                 <input type="text" name="password" class="input-setting-field" placeholder="Пароль" value="" required>
                             </div>
+                            -->
+                               <a href="<?php echo BASE_URL?>login.php" class="btn modal-content-form-btn modal-content-form--item">
+                                   <span>Авторизоваться</span>
+                               </a>
                             <div class="modal-content-form-buttons modal-content-form--item">
                                 <a href="<?php echo BASE_URL?>reset.php" class="btn">
                                     <span>Забыл пароль</span>

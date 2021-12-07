@@ -1,5 +1,6 @@
 <?php
 include 'app/helpers/path.php';
+include 'app/Database/db.php';
 include 'app/controllers/users.php';
 
 ?>
@@ -23,26 +24,31 @@ include 'app/controllers/users.php';
   <body>
   <?php include('app/includes/header.php');?>
     <main id="main">
+        <?php if(isset($_SESSION['id'])):?>
         <div class="reset-container">
-        <h1>Настройки</h1>
-        <form action="" class="reset-form">
+        <h1>Настройки  id: <?php echo $IdUpdate ?></h1>
+        <form action="settings.php" method="post" class="reset-form">
             <div class="header-second--search input input-setting">
-                <input type="text" class="input-setting-field" placeholder="Имя" value="">
+                <input type="text"  name='email' class="input-setting-field" placeholder="E-mail" value="<?php echo selectOne('users',['id'=>$_SESSION['id']])['email']?>">
             </div>
             <div class="header-second--search input input-setting">
-                <input type="date" class="input-setting-field" placeholder="Возраст" value="">
+                <input type="text" name="age" class="input-setting-field" placeholder="Возраст" value="<?php echo selectOne('users',['id'=>$_SESSION['id']])['age']?>">
             </div>
             <div class="header-second--search input input-setting">
-                <input type="email" class="input-setting-field" placeholder="email" value="">
+                <input type="text" name='password-old'class="input-setting-field" placeholder="Старый пароль" value="">
             </div>
             <div class="header-second--search input input-setting">
-                <input type="text" class="input-setting-field" placeholder="Любимое животное" value="">
+                <input type="text" name='password-new'class="input-setting-field" placeholder="Новый пароль" value="">
             </div>
-             <input  type="submit" class="btn-submit btn header-second-user--login" value="Сохранить">
+             <input  type="submit" name="btn-update"class="btn-submit btn header-second-user--login" value="Сохранить">
            
         </form>
     </div>
+        <?php else:?>
+            <H1>Авторизируйтесь</H1>
+        <?php endif;?>
     </main>
+
   <? include ('app/includes/footer.php')?>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="assets/js/swiper.js"></script>

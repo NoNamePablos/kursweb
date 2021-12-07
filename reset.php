@@ -1,4 +1,5 @@
 <?php include ('app/helpers/path.php');
+include 'app/Database/db.php';
 include 'app/controllers/users.php';
 ?>
 <!DOCTYPE html>
@@ -23,11 +24,11 @@ include 'app/controllers/users.php';
     <main id="main">
         <div class="reset-container">
         <h1>Востановление пароля</h1>
-        <form action="" class="reset-form">
+        <form action="reset.php" method="post" class="reset-form">
             <div class="header-second--search input input-setting">
-                <input type="text" class="input-setting-field" placeholder="Введите логин" value="">
+                <input type="text" name="email" class="input-setting-field" placeholder="Введите логин" value="">
             </div>
-             <input  type="submit" class="btn-submit btn header-second-user--login" placeholder=">Востановить">
+             <input  type="submit" name="btn-newpass" class="btn-submit btn header-second-user--login" placeholder=">Востановить">
            
         </form>
     </div>
