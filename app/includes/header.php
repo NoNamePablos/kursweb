@@ -53,21 +53,29 @@
             <button class="header-second-theme">
                 <svg class="theme-light header-logo-ico" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z"></path></svg>
             </button>
-            <div class="header-second-user ">
-                <button class="btn header-second-user--login" data-path="form-popup">
-                   <span>Войти</span>
-                </button>
-            </div>
-            <div class="header-second-user--active is-hidden">
-              <span class="header-second-user--active-login">gdfgdgdg
+
+            <?php if (isset($_SESSION['id'])): ?>
+            <div class="header-second-user--active ">
+              <span class="header-second-user--active-login">
+                  <?php echo $_SESSION['login'];?>
               </span>
               <div class="header-second-user--active-login--list">
-                <a href="profile.html" class="header-second-user--active-login--item">Профиль</a>
-                <a href="settings.html"class="header-second-user--active-login--item">Настройки</a>
-                <button class="header-second-user--active-login--item">Выйти</button>
+                  <?php if ($_SESSION['admin']===1): ?>
+                  <a href="settings.php" class="header-second-user--active-login--item">Админка</a>
+                  <?php  endif;?>
+                <a href="profile.php" class="header-second-user--active-login--item">Профиль</a>
+                <a href="settings.php" class="header-second-user--active-login--item">Настройки</a>
+                <a href="logout.php" class="header-second-user--active-login--item">Выйти</a>
 
               </div>
           </div>
+            <?php else:?>
+                <div class="header-second-user ">
+                    <a href="login.php" class="btn header-second-user--login" <!--data-path="form-popup"-->>
+                        <span>Войти</span>
+                    </a>
+                </div>
+            <?php  endif;?>
         </div>
       </div>
       </div>

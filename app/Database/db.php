@@ -1,6 +1,6 @@
 <?php
 require('connect.php');
-
+session_start();
 function showArr($value){
     echo '<pre>';
     print_r($value);
@@ -82,11 +82,12 @@ function insert($table,$params=[]){
            $mask=$mask."'"."$value"."'";
        }else{
            $coll=$coll .", $key";
-           $mask=$mask.", '"." $value"."'";
+           $mask=$mask.", '"."$value"."'";
        }
 
         $i++;
     }
+
     $sql="INSERT INTO $table ($coll) VALUES($mask)";
     $query=$pdo->prepare($sql);
 

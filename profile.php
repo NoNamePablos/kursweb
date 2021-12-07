@@ -1,4 +1,8 @@
-<?php include ('app/helpers/path.php')?>
+<?php
+include 'app/helpers/path.php';
+include 'app/controllers/users.php';
+
+?>
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -19,6 +23,7 @@
   <body>
   <?php include('app/includes/header.php');?>
     <main id="main">
+        <?php if(isset($_SESSION['id'])):?>
         <div class="container">
             <h3>Избранное</h3>
             <section class="films">
@@ -84,6 +89,9 @@
                 </div>
               </section>  
         </div>
+        <?php else:?>
+        <H1>Авторизируйтесь</H1>
+        <?php endif;?>
     </div>
     </main>
   <? include ('app/includes/footer.php')?>

@@ -1,4 +1,8 @@
-<?php include ('app/helpers/path.php')?>
+<?php
+include 'app/helpers/path.php';
+include 'app/Database/db.php';
+include 'app/controllers/users.php';
+?>
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -31,12 +35,12 @@
                            </button>
                        </div>
                        <div class="modal-content">
-                           <form action="" class="modal-content-form">
+                           <form  method="post" class="modal-content-form">
                             <div class="header-second--search input input-setting modal-content-form--item">
-                                <input type="text" class="input-setting-field" placeholder="Логин" value="" required>
+                                <input type="text" name="email" class="input-setting-field" placeholder="Логин" value="" required>
                             </div>
                             <div class="header-second--search input input-setting modal-content-form--item">
-                                <input type="text" class="input-setting-field" placeholder="Пароль" value="" required>
+                                <input type="text" name="password" class="input-setting-field" placeholder="Пароль" value="" required>
                             </div>
                             <div class="modal-content-form-buttons modal-content-form--item">
                                 <a href="<?php echo BASE_URL?>reset.php" class="btn">
@@ -46,7 +50,7 @@
                                     <span>Регистрация</span>
                                 </a>
                             </div>
-                            <input type="submit"class="btn modal-content-form-btn modal-content-form--item" value="войти">
+                            <input type="submit" name="btn-log" class="btn  modal-content-form-btn modal-content-form--item" value="Войти">
                            </form>
                        </div>
                     </div>

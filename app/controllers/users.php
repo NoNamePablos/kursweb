@@ -1,15 +1,16 @@
 <?php
+
 $isSubmit=false;
 $errMsg='';
-if($_SERVER['REQUEST_METHOD']==='POST'){
+if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['btn-reg'])){
     $login=trim($_POST['login']);
     $email=trim($_POST['email']);
+
     $passwordSecond=trim($_POST['password-second']);
     $passwordFirst=trim($_POST['password-first']);
     $admin=0;
     if($login===""||$email===""||$passwordSecond===""||$passwordFirst===""){
         $errMsg="Не все поля заполнены !";
-        echo $errMsg;
     }elseif(mb_strlen($login,'UTF8')<2){
         $errMsg="Логин не может быть меньше 2-х символов!ы";
     }elseif($passwordFirst!==$passwordSecond){
@@ -26,14 +27,23 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         }else{
             $password=password_hash($_POST['password-second'],PASSWORD_DEFAULT);
             $arrData=[
-                'admin'=>$admin,
+                'admin'=>0,
                 'username'=>$login,
                 'password'=>$password,
-                'email'=>$email,
+                'email'=>trim($email),
             ];
             $id=insert('users',$arrData);
             $isSubmit=true;
+            $user=selectOne('users',['id'=>$id]);
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['login']=$user['username'];
+            $_SESSION['admin']=$user['admin'];
 
+            if($_SESSION['admin']){
+                header('location: /' . 'admin/admin.php');
+            }else {
+                header('location: /');
+            }
         }
 
    }
@@ -44,6 +54,33 @@ $login='';
 $email='';
 
 
+}
+if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['btn-log'])){
+    $emails=trim($_POST['email']);
+    $passwordS=trim($_POST['password']);
+    showArr($emails);
+    if($emails===""||$passwordS===""){
+        $errMsg="Не все поля заполнены 111!";
+    }else{
+    $checkAuthMail=selectOne('users',['email'=>$emails]);
+    $errMsg="test!";
+    if($checkAuthMail && password_verify($passwordS,$checkAuthMail['password'])){
+        $_SESSION['id']=$checkAuthMail['id'];
+        $_SESSION['login']=$checkAuthMail['username'];
+        $_SESSION['admin']=$checkAuthMail['admin'];
+
+        if($_SESSION['admin']){
+            header('location: /' . 'admin/admin.php');
+        }else{
+        header('location: /' );
+        }
+    }else{
+        //ошибка авторизации
+        $errMsg= 'Почта либо пароль неверный!';
+    }
+    }
+}else{
+    $emails='';
 }
    //   $password=password_hash($_POST['password-second'],PASSWORD_DEFAULT);
     /*$id=insert('users',$arrData);

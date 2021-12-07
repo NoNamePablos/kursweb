@@ -1,4 +1,6 @@
-<?php include ('app/helpers/path.php')?>
+<?php include ('app/helpers/path.php');
+include 'app/controllers/users.php';
+?>
 <!DOCTYPE html>
 <html lang="ru">
   <head>

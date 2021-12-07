@@ -3,7 +3,7 @@ $driver='mysql';
 $host = 'localhost';
 $db_name = 'filmlib';
 $db_user = 'root';
-$db_pass = 'mysql';
+$db_pass = '';
 $db_charset='utf8';
 $options =[PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC];

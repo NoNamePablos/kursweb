@@ -1,7 +1,7 @@
 <?php
 include ('app/helpers/path.php');
-include "app/Database/db.php";
-include "app/controllers/users.php";
+include 'app/Database/db.php';
+include 'app/controllers/users.php';
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +44,7 @@ include "app/controllers/users.php";
             <div class="header-second--search input input-setting">
                 <input type="password" class="input-setting-field" name="password-second" placeholder="Повторить пароль " value="">
             </div>
-             <input  type="submit" class="btn-submit btn header-second-user--login" placeholder=">Востановить">
+             <input  type="submit" name="btn-reg" class="btn-submit  btn header-second-user--login" placeholder=">Востановить">
            
         </form>
     </div>
