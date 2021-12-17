@@ -1021,3 +1021,115 @@ main {
   background-color: #000;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
+
+.admin-wrapper {
+  display: flex;
+  padding: 0 50px;
+}
+.admin-wrapper .admin-table--wrapper {
+  flex-grow: 1;
+  margin-left: 20px;
+  padding-top: 10px;
+}
+.admin-wrapper .admin-table--manage {
+  display: flex;
+  margin-bottom: 20px;
+}
+.admin-wrapper .admin-table--manage_btn {
+  width: 120px;
+}
+.admin-wrapper .admin-table--manage_btn:hover {
+  color: black !important;
+}
+.admin-wrapper .admin-table--manage_btn:not(:last-child) {
+  margin-right: 10px;
+}
+.admin-wrapper .admin-nav {
+  width: 20%;
+  margin-left: 20px;
+}
+.admin-wrapper .admin-nav--list {
+  padding: 10px;
+}
+.admin-wrapper .admin-nav--list__item {
+  width: 100%;
+  background-color: #4e6baf;
+  border-radius: 6px;
+  border: 1px solid #333333;
+  padding: 20px;
+  transition: all 0.5s ease-in-out;
+}
+.admin-wrapper .admin-nav--list__item-link {
+  color: white;
+}
+.admin-wrapper .admin-nav--list__item:hover {
+  background-color: #326FDEFF;
+}
+.admin-wrapper .admin-nav--list__item:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.table > :not(caption) > * > * {
+  border-bottom: none;
+}
+
+.admin-table {
+  overflow: auto;
+}
+.admin-table td {
+  width: 150px;
+}
+.admin-table th {
+  white-space: nowrap;
+}
+.admin-table-control {
+  display: flex;
+  padding: 10px 30px;
+}
+.admin-table-control_btn {
+  flex: 1;
+  width: 0;
+  padding: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+}
+.admin-table-control_btn:not(:last-child) {
+  margin-right: 10px;
+}
+.admin-table tbody tr {
+  transition: all 0.5s ease-in;
+}
+.admin-table tbody tr:hover {
+  background-color: #e3e3e3;
+}
+.admin-table__description {
+  width: 150px;
+}
+.admin-table__description p {
+  max-width: 150px;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -ms-line-clamp: 1;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  display: -webkit-box;
+  display: box;
+  word-wrap: break-word;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+}
+
+.admin-add--wrapper {
+  width: 50%;
+  margin-left: 50px;
+}
+.admin-add--wrapper .admin-add--form input[type=submit] {
+  width: 120px;
+  color: white;
+}
+.admin-add--wrapper .admin-add--form input[type=submit]:hover {
+  color: black;
+}

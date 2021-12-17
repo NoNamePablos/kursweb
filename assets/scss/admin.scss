@@ -1,0 +1,116 @@
+.admin-wrapper{
+  display: flex;
+  padding:0 50px;
+  & .admin-table--wrapper{
+    flex-grow: 1;
+    margin-left: 20px;
+    padding-top: 10px;
+  }
+  & .admin-table--manage{
+    display: flex;
+    margin-bottom: 20px;
+    &_btn{
+    width: 120px;
+      &:hover{
+      color: black !important;
+      }
+      &:not(:last-child){
+        margin-right: 10px;
+      }
+    }
+  }
+  & .admin-nav{
+    width: 20%;
+    margin-left: 20px;
+    &--list{
+      padding:10px;
+      &__item{
+        width: 100%;
+        background-color: #4e6baf;
+        border-radius: 6px;
+        border:1px solid #333333;
+        padding:20px;
+        transition: all 0.5s ease-in-out;
+        &-link{
+          color:white;
+        }
+        &:hover{
+          background-color: #326FDEFF;
+        }
+        &:not(:last-child){
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}
+.table>:not(caption)>*>*{
+  border-bottom:none;
+}
+.admin-table{
+  td{
+    width:150px;
+  }
+  th{
+    white-space: nowrap;
+  }
+  overflow: auto;
+  &-control{
+    display: flex;
+    padding: 10px 30px;
+    &_btn{
+     flex: 1;
+      width: 0;
+      padding:10px 0;
+      border-radius: 6px;
+      text-align: center;
+      transition: all 0.5s ease-in-out;
+
+      &:not(:last-child){
+        margin-right: 10px;
+      }
+    }
+  }
+  & tbody {
+  & tr{
+      transition: all 0.5s ease-in;
+      &:hover{
+        background-color: #e3e3e3;
+      }
+    }
+
+  }
+  &__description{
+    width:150px;
+    & p{
+      max-width:150px;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      -ms-line-clamp: 1;
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+      display: -webkit-box;
+      display: box;
+      word-wrap: break-word;
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
+    }
+  }
+}
+.admin-add--wrapper{
+  width: 50%;
+  margin-left: 50px;
+  & .admin-add--form{
+    & input[type='submit']{
+      width: 120px;
+      color:white;
+      &:hover{
+        color:black;
+      }
+    }
+  }
+
+}
+

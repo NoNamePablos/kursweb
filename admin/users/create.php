@@ -15,7 +15,7 @@ include $root1.'./app/controllers/users.php';
     <title>Filmlib</title>
     <link rel="stylesheet" href="/assets/scss/vendor.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src = "https://use.fontawesome.com/a6b6076a89.js " > </script>
+    <script src = " https://use.fontawesome.com/a6b6076a89.js " > </script>
     <link
         rel="stylesheet"
         href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
@@ -65,63 +65,32 @@ include $root1.'./app/controllers/users.php';
         </div>
     </div>-->
     <div class="admin-wrapper">
-        <nav class="admin-nav">
-            <ul class="admin-nav--list">
-                <li class="admin-nav--list__item" ><a class="admin-nav--list__item-link" href="index.php">Фильмы</a></li>
-                <li class="admin-nav--list__item"><a class="admin-nav--list__item-link" href="/admin/users/index.php">Пользователи</a></li>
-                <li class="admin-nav--list__item"><a class="admin-nav--list__item-link" href="">Тест</a></li>
-            </ul>
-        </nav>
+
         <section class="admin-add--wrapper">
-            <form class="admin-add--form form-horizontal was-validated" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <label for="validationServer05" class="form-label">Название фильма</label>
-                        <input type="text" class="form-control " id="validationServer05" aria-describedby="validationServer05Feedback" required>
-                        <div class="invalid-feedback"> Введите название фильма</div>
-
-                    </div>
-                    <div class="mb-3">
-                        <input type="file" class="form-control" aria-label="Загрузить превью" required>
-                        <div class="invalid-feedback">Загрузить превью</div>
-                    </div>
-                    <div class="mb-3">
-                        <input type="file" class="form-control" aria-label="Загрузить видео" required>
-                        <div class="invalid-feedback">Загрузить видео</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="validationTextarea" class="form-label">Описание</label>
-                        <textarea class="form-control " id="validationTextarea" placeholder="Required example textarea" required></textarea>
-
-                        <div class="invalid-feedback">
-                          Введите описание
-                        </div>
-                    </div>
-                <div class="mb-3">
-                    <label for="validationServer07" class="form-label">Актеры</label>
-                    <input type="text" class="form-control " id="validationServer07" aria-describedby="validationServer07Feedback" required>
-                    <div class="invalid-feedback"> Введите Актеров</div>
-
+            <form action="/registration.php" method="post" class="reset-form">
+                <div class="header-second--search input input-setting">
+                    <input type="text" class="input-setting-field" name="login" placeholder="логин" value="<?=$login?>">
                 </div>
-                <div class="mb-3">
-                    <label for="validationServer08" class="form-label">Мировые сборы</label>
-                    <input type="text" class="form-control " id="validationServer08" aria-describedby="validationServer08Feedback" required>
-                    <div class="invalid-feedback">Мировые сборы</div>
+                <div class="header-second--search input input-setting">
+                    <input type="text" class="input-setting-field"  name="email" placeholder="email " value="<?=$email?>">
                 </div>
 
-                <div class="mb-3">
-                    <label for="validationServer09" class="form-label">Сборы в России</label>
-                    <input type="text" class="form-control " id="validationServer09" aria-describedby="validationServer09Feedback" required>
-                    <div class="invalid-feedback">Сборы в России</div>
-                </div>
 
-                <div class="mb-3">
-                    <label for="validationServer05" class="form-label">Год</label>
-                    <input type="text" class="form-control " id="validationServer010" aria-describedby="validationServer010Feedback" required>
-                    <div class="invalid-feedback">Год</div>
+                <div class="header-second--search input input-setting">
+                    <input type="password" class="input-setting-field" name="password-first" placeholder="Пароль " value="">
+                </div>
+                <div class="header-second--search input input-setting">
+                    <input type="password" class="input-setting-field" name="password-second" placeholder="Повторить пароль " value="">
                 </div>
                 <div class="mb-3">
-                        <input class="btn btn-primary" type="submit" value="Добавить" >
+                    <select class="form-select" required aria-label="select example">
+                        <option value="0">User</option>
+                        <option value="1">Admin</option>
+                    </select>
+                    <div class="invalid-feedback">Установи значение</div>
                 </div>
+                <input  type="submit" name="btn-reg" class="btn-submit  btn header-second-user--login" value="Добавить">
+
             </form>
         </section>
     </div>

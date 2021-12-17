@@ -26,7 +26,7 @@ include $root1.'./app/controllers/users.php';
 <body>
 <?php include($root1.'./app/includes/admin_header.php');?>
 <main id="main " >
-   <!-- <div class="container">
+    <div class="container">
         <div class="modals">
             <div class="modal-overlay">
                 <div class="modal modal--1" data-target="form-popup">
@@ -37,7 +37,7 @@ include $root1.'./app/controllers/users.php';
                         </button>
                     </div>
                     <div class="modal-content">
-                        <form  method="post" class="modal-content-form">-->
+                        <form  method="post" class="modal-content-form">
                             <!---
                             <div class="header-second--search input input-setting modal-content-form--item">
                                 <input type="text" name="email" class="input-setting-field" placeholder="Логин" value="" required>
@@ -46,14 +46,14 @@ include $root1.'./app/controllers/users.php';
                                 <input type="text" name="password" class="input-setting-field" placeholder="Пароль" value="" required>
                             </div>
                             -->
-               <!--             <a href="<?php /*echo BASE_URL*/?>login.php" class="btn modal-content-form-btn modal-content-form--item">
+                            <a href="<?php echo BASE_URL?>login.php" class="btn modal-content-form-btn modal-content-form--item">
                                 <span>Авторизоваться</span>
                             </a>
                             <div class="modal-content-form-buttons modal-content-form--item">
-                                <a href="<?php /*echo BASE_URL*/?>reset.php" class="btn">
+                                <a href="<?php echo BASE_URL?>reset.php" class="btn">
                                     <span>Забыл пароль</span>
                                 </a>
-                                <a href="<?php /*echo BASE_URL*/?>registration.php" class="btn">
+                                <a href="<?php echo BASE_URL?>registration.php" class="btn">
                                     <span>Регистрация</span>
                                 </a>
                             </div>
@@ -63,11 +63,15 @@ include $root1.'./app/controllers/users.php';
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
     <div class="admin-wrapper">
-      <?php
-      $root1=$_SERVER['DOCUMENT_ROOT'];
-      include $root1."./app/includes/admin_sidebar.php";?>
+        <nav class="admin-nav">
+            <ul class="admin-nav--list">
+                <li class="admin-nav--list__item" ><a class="admin-nav--list__item-link" href="/admin/films/index.php">Фильмы</a></li>
+                <li class="admin-nav--list__item"><a class="admin-nav--list__item-link" href="index.php">Пользователи</a></li>
+                <li class="admin-nav--list__item"><a class="admin-nav--list__item-link" href="">Тест</a></li>
+            </ul>
+        </nav>
         <section class="admin-table--wrapper">
             <div class="admin-table--manage">
                 <a href="create.php" class="admin-table--manage_btn btn btn-warning">Add film</a>
@@ -77,14 +81,11 @@ include $root1.'./app/controllers/users.php';
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Название фильма</th>
-                    <th scope="col">Ссылка на фильм</th>
-                    <th scope="col">Ссылка на превью</th>
-                    <th scope="col">Описание</th>
-                    <th scope="col">Актеры</th>
-                    <th scope="col">Мировые сборы</th>
-                    <th scope="col">Сборы в России</th>
-                    <th scope="col">Год</th>
+                    <th scope="col">Логин</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Пароль</th>
+                    <th scope="col">Статус</th>
+                    <th scope="col">Возраст</th>
                     <th scope="col">Управление</th>
                 </tr>
                 </thead>
@@ -93,22 +94,19 @@ include $root1.'./app/controllers/users.php';
 
 
                     <th scope="row">1</th>
-                    <td>фильм1</td>
-                    <td>/asset/film1</td>
-                    <td>/asset/film1.png</td>
+                    <td>admin</td>
                     <td class="admin-table__description">
                         <p>
-                            test
+                            admin123@mail.ru
                         </p>
                     </td>
                     <td class="admin-table__description">
                         <p>
-                            КУРСКИЙ,ЛЕВША
+                           sdfdsfsf@fds213123
                         </p>
                     </td>
-                    <td>150000$</td>
-                    <td>1.0000.000руб</td>
-                    <td >2021</td>
+                    <td>1</td>
+                    <td>21</td>
                     <td class="admin-table-control">
                         <a class="admin-table-control_btn btn-primary" href="">edit</a>
                         <a class="admin-table-control_btn btn-danger" href="">delete</a>
@@ -118,23 +116,19 @@ include $root1.'./app/controllers/users.php';
 
 
                     <th scope="row">1</th>
-                    <td>фильм1</td>
-
-                    <td>/asset/film1</td>
-                    <td>/asset/film1.png</td>
+                    <td>admin</td>
                     <td class="admin-table__description">
                         <p>
-                            test
+                            admin123@mail.ru
                         </p>
                     </td>
                     <td class="admin-table__description">
                         <p>
-                            КУРСКИЙ,ЛЕВША
+                            sdfdsfsf@fds213123
                         </p>
                     </td>
-                    <td>150000$</td>
-                    <td>1.0000.000руб</td>
-                    <td >2021</td>
+                    <td>1</td>
+                    <td>21</td>
                     <td class="admin-table-control">
                         <a class="admin-table-control_btn btn-primary" href="">edit</a>
                         <a class="admin-table-control_btn btn-danger" href="">delete</a>
@@ -144,22 +138,19 @@ include $root1.'./app/controllers/users.php';
 
 
                     <th scope="row">1</th>
-                    <td>фильм1</td>
-                    <td>/asset/film1</td>
-                    <td>/asset/film1.png</td>
+                    <td>admin</td>
                     <td class="admin-table__description">
                         <p>
-                            test
+                            admin123@mail.ru
                         </p>
                     </td>
                     <td class="admin-table__description">
                         <p>
-                            КУРСКИЙ,ЛЕВША
+                            sdfdsfsf@fds213123
                         </p>
                     </td>
-                    <td>150000$</td>
-                    <td>1.0000.000руб</td>
-                    <td >2021</td>
+                    <td>1</td>
+                    <td>21</td>
                     <td class="admin-table-control">
                         <a class="admin-table-control_btn btn-primary" href="">edit</a>
                         <a class="admin-table-control_btn btn-danger" href="">delete</a>
@@ -169,22 +160,19 @@ include $root1.'./app/controllers/users.php';
 
 
                     <th scope="row">1</th>
-                    <td>фильм1</td>
-                    <td>/asset/film1</td>
-                    <td>/asset/film1.png</td>
+                    <td>admin</td>
                     <td class="admin-table__description">
                         <p>
-                            test
+                            admin123@mail.ru
                         </p>
                     </td>
                     <td class="admin-table__description">
                         <p>
-                            КУРСКИЙ,ЛЕВША
+                            sdfdsfsf@fds213123
                         </p>
                     </td>
-                    <td>150000$</td>
-                    <td>1.0000.000руб</td>
-                    <td >2021</td>
+                    <td>1</td>
+                    <td>21</td>
                     <td class="admin-table-control">
                         <a class="admin-table-control_btn btn-primary" href="">edit</a>
                         <a class="admin-table-control_btn btn-danger" href="">delete</a>
