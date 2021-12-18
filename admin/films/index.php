@@ -1,8 +1,7 @@
 <?php
-$root1=$_SERVER['DOCUMENT_ROOT'];
-include $root1.'./app/helpers/path.php';
-include $root1.'./app/Database/db.php';
-include $root1.'./app/controllers/users.php';
+include '../../app/helpers/path.php';
+include '../../app/Database/db.php';
+include '../../app/controllers/users.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -24,7 +23,7 @@ include $root1.'./app/controllers/users.php';
 </head>
 
 <body>
-<?php include($root1.'./app/includes/admin_header.php');?>
+<?php include('../../app/includes/admin_header.php');?>
 <main id="main " >
    <!-- <div class="container">
         <div class="modals">
@@ -66,12 +65,11 @@ include $root1.'./app/controllers/users.php';
     </div>-->
     <div class="admin-wrapper">
       <?php
-      $root1=$_SERVER['DOCUMENT_ROOT'];
-      include $root1."./app/includes/admin_sidebar.php";?>
+      include "../../app/includes/admin_sidebar.php";?>
         <section class="admin-table--wrapper">
             <div class="admin-table--manage">
-                <a href="create.php" class="admin-table--manage_btn btn btn-warning">Add film</a>
-                <a href="index.php" class="admin-table--manage_btn btn btn-success">Manage films</a>
+                <a href="<?=BASE_URL.'admin/films/create.php';?>" class="admin-table--manage_btn btn btn-warning">Add film</a>
+                <a href="<?=BASE_URL.'admin/films/index.php';?>" class="admin-table--manage_btn btn btn-success">Manage films</a>
             </div>
             <table class="admin-table table align-middle">
                 <thead>
@@ -196,7 +194,7 @@ include $root1.'./app/controllers/users.php';
     </div>
 
 </main>
-<? include ($root1.'./app/includes/footer.php')?>
+<?php include ('../../app/includes/footer.php')?>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="/assets/js/swiper.js"></script>
 <script src="/assets/js/modal.js"></script>

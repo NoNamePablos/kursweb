@@ -111,7 +111,6 @@ function update($table,$id,$params){
         $i++;
     }
     $sql="UPDATE $table SET $str WHERE id = $id ";
-
     $query=$pdo->prepare($sql);
 
     $query->execute($params);

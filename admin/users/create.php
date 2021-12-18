@@ -1,8 +1,8 @@
 <?php
-$root1=$_SERVER['DOCUMENT_ROOT'];
-include $root1.'./app/helpers/path.php';
-include $root1.'./app/Database/db.php';
-include $root1.'./app/controllers/users.php';
+
+include '../../app/helpers/path.php';
+include '../../app/Database/db.php';
+include '../../app/controllers/users.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -24,7 +24,7 @@ include $root1.'./app/controllers/users.php';
 </head>
 
 <body>
-<?php include($root1.'./app/includes/admin_header.php');?>
+<?php include('../../app/includes/admin_header.php');?>
 <main id="main " >
     <!-- <div class="container">
          <div class="modals">
@@ -65,9 +65,10 @@ include $root1.'./app/controllers/users.php';
         </div>
     </div>-->
     <div class="admin-wrapper">
-
+        <?php
+        include "../../app/includes/admin_sidebar.php";?>
         <section class="admin-add--wrapper">
-            <form action="/registration.php" method="post" class="reset-form">
+            <form action="create.php" method="post" class="reset-form">
                 <div class="header-second--search input input-setting">
                     <input type="text" class="input-setting-field" name="login" placeholder="логин" value="<?=$login?>">
                 </div>
@@ -82,21 +83,21 @@ include $root1.'./app/controllers/users.php';
                 <div class="header-second--search input input-setting">
                     <input type="password" class="input-setting-field" name="password-second" placeholder="Повторить пароль " value="">
                 </div>
-                <div class="mb-3">
-                    <select class="form-select" required aria-label="select example">
-                        <option value="0">User</option>
-                        <option value="1">Admin</option>
-                    </select>
-                    <div class="invalid-feedback">Установи значение</div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="admin" value="1" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Admin?
+                    </label>
                 </div>
-                <input  type="submit" name="btn-reg" class="btn-submit  btn header-second-user--login" value="Добавить">
+
+                <input  type="submit" name="create-user" class="btn-submit  btn header-second-user--login" value="Добавить">
 
             </form>
         </section>
     </div>
 
 </main>
-<? include ($root1.'./app/includes/footer.php')?>
+<?php include ('../../app/includes/footer.php')?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="/assets/js/modal.js"></script>
 </body>

@@ -60,12 +60,12 @@
                   <?php echo $_SESSION['login'];?>
               </span>
               <div class="header-second-user--active-login--list">
-                  <?php if ($_SESSION['admin']===1): ?>
-                  <a href="settings.php" class="header-second-user--active-login--item">Админка</a>
+                  <?php if (isset($_SESSION['admin'])): ?>
+                  <a href="<?=BASE_URL.'admin/films/index.php';?>" class="header-second-user--active-login--item">Админка</a>
                   <?php  endif;?>
-                <a href="profile.php" class="header-second-user--active-login--item">Профиль</a>
-                <a href="settings.php" class="header-second-user--active-login--item">Настройки</a>
-                <a href="logout.php" class="header-second-user--active-login--item">Выйти</a>
+                <a href="/profile.php" class="header-second-user--active-login--item">Профиль</a>
+                <a href="/settings.php" class="header-second-user--active-login--item">Настройки</a>
+                <a href="/logout.php" class="header-second-user--active-login--item">Выйти</a>
 
               </div>
           </div>

@@ -1,8 +1,8 @@
 <?php
 $root1=$_SERVER['DOCUMENT_ROOT'];
-include $root1.'./app/helpers/path.php';
-include $root1.'./app/Database/db.php';
-include $root1.'./app/controllers/users.php';
+include '../../app/helpers/path.php';
+include '../../app/Database/db.php';
+include '../../app/controllers/users.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -24,7 +24,7 @@ include $root1.'./app/controllers/users.php';
 </head>
 
 <body>
-<?php include($root1.'./app/includes/admin_header.php');?>
+<?php include('../../app/includes/admin_header.php');?>
 <main id="main " >
     <div class="container">
         <div class="modals">
@@ -65,17 +65,13 @@ include $root1.'./app/controllers/users.php';
         </div>
     </div>
     <div class="admin-wrapper">
-        <nav class="admin-nav">
-            <ul class="admin-nav--list">
-                <li class="admin-nav--list__item" ><a class="admin-nav--list__item-link" href="/admin/films/index.php">Фильмы</a></li>
-                <li class="admin-nav--list__item"><a class="admin-nav--list__item-link" href="index.php">Пользователи</a></li>
-                <li class="admin-nav--list__item"><a class="admin-nav--list__item-link" href="">Тест</a></li>
-            </ul>
-        </nav>
+        <?php
+        include "../../app/includes/admin_sidebar.php";?>
+
         <section class="admin-table--wrapper">
             <div class="admin-table--manage">
-                <a href="create.php" class="admin-table--manage_btn btn btn-warning">Add film</a>
-                <a href="index.php" class="admin-table--manage_btn btn btn-success">Manage films</a>
+                <a href="<?=BASE_URL.'admin/users/create.php';?>" class="admin-table--manage_btn btn btn-warning">Add film</a>
+                <a href="<?=BASE_URL.'admin/users/index.php';?>" class="admin-table--manage_btn btn btn-success">Manage films</a>
             </div>
             <table class="admin-table table align-middle">
                 <thead>
@@ -83,108 +79,42 @@ include $root1.'./app/controllers/users.php';
                     <th scope="col">ID</th>
                     <th scope="col">Логин</th>
                     <th scope="col">E-mail</th>
-                    <th scope="col">Пароль</th>
                     <th scope="col">Статус</th>
                     <th scope="col">Возраст</th>
                     <th scope="col">Управление</th>
                 </tr>
                 </thead>
                 <tbody>
+                <?php foreach ($users_admin as $key=>$user_admin):?>
                 <tr>
 
 
-                    <th scope="row">1</th>
-                    <td>admin</td>
+                    <th scope="row"><?=$user_admin['id'];?></th>
+                    <td><?=$user_admin['username'];?></td>
                     <td class="admin-table__description">
                         <p>
-                            admin123@mail.ru
+                            <?=$user_admin['email'];?>
                         </p>
                     </td>
-                    <td class="admin-table__description">
-                        <p>
-                           sdfdsfsf@fds213123
-                        </p>
-                    </td>
-                    <td>1</td>
-                    <td>21</td>
+                    <?php if($user_admin['admin']==1):?>
+                    <td>Админ</td>
+                    <?php else: ?>
+                    <td>Пользователь</td>
+                    <?php endif; ?>
+                    <td><?=$user_admin['age']?></td>
                     <td class="admin-table-control">
-                        <a class="admin-table-control_btn btn-primary" href="">edit</a>
-                        <a class="admin-table-control_btn btn-danger" href="">delete</a>
+                        <a class="admin-table-control_btn btn-primary" href="edit.php?edit_id=<?=$user_admin['id'];?>">edit</a>
+                        <a class="admin-table-control_btn btn-danger" href="index.php?delete_id=<?=$user_admin['id'];?>">delete</a>
                     </td>
                 </tr>
-                <tr>
-
-
-                    <th scope="row">1</th>
-                    <td>admin</td>
-                    <td class="admin-table__description">
-                        <p>
-                            admin123@mail.ru
-                        </p>
-                    </td>
-                    <td class="admin-table__description">
-                        <p>
-                            sdfdsfsf@fds213123
-                        </p>
-                    </td>
-                    <td>1</td>
-                    <td>21</td>
-                    <td class="admin-table-control">
-                        <a class="admin-table-control_btn btn-primary" href="">edit</a>
-                        <a class="admin-table-control_btn btn-danger" href="">delete</a>
-                    </td>
-                </tr>
-                <tr>
-
-
-                    <th scope="row">1</th>
-                    <td>admin</td>
-                    <td class="admin-table__description">
-                        <p>
-                            admin123@mail.ru
-                        </p>
-                    </td>
-                    <td class="admin-table__description">
-                        <p>
-                            sdfdsfsf@fds213123
-                        </p>
-                    </td>
-                    <td>1</td>
-                    <td>21</td>
-                    <td class="admin-table-control">
-                        <a class="admin-table-control_btn btn-primary" href="">edit</a>
-                        <a class="admin-table-control_btn btn-danger" href="">delete</a>
-                    </td>
-                </tr>
-                <tr>
-
-
-                    <th scope="row">1</th>
-                    <td>admin</td>
-                    <td class="admin-table__description">
-                        <p>
-                            admin123@mail.ru
-                        </p>
-                    </td>
-                    <td class="admin-table__description">
-                        <p>
-                            sdfdsfsf@fds213123
-                        </p>
-                    </td>
-                    <td>1</td>
-                    <td>21</td>
-                    <td class="admin-table-control">
-                        <a class="admin-table-control_btn btn-primary" href="">edit</a>
-                        <a class="admin-table-control_btn btn-danger" href="">delete</a>
-                    </td>
-                </tr>
+                <?php endforeach;?>
                 </tbody>
             </table>
         </section>
     </div>
 
 </main>
-<? include ($root1.'./app/includes/footer.php')?>
+<?php include ('../../app/includes/footer.php')?>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="/assets/js/swiper.js"></script>
 <script src="/assets/js/modal.js"></script>
