@@ -2,7 +2,7 @@
 
 include '../../app/helpers/path.php';
 include '../../app/Database/db.php';
-include '../../app/controllers/users.php';
+include '../../app/controllers/films.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -68,54 +68,59 @@ include '../../app/controllers/users.php';
         <?php
         include "../../app/includes/admin_sidebar.php";?>
         <section class="admin-add--wrapper">
-            <form class="admin-add--form form-horizontal was-validated" enctype="multipart/form-data">
+            <form action="create.php"  method="post" class="admin-add--form form-horizontal was-validated" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="validationServer05" class="form-label">Название фильма</label>
-                        <input type="text" class="form-control " id="validationServer05" aria-describedby="validationServer05Feedback" required>
+                        <input type="text" class="form-control " name="film_name" id="validationServer05" aria-describedby="validationServer05Feedback" required>
                         <div class="invalid-feedback"> Введите название фильма</div>
 
                     </div>
                     <div class="mb-3">
-                        <input type="file" class="form-control" aria-label="Загрузить превью" required>
+                        <input type="file" class="form-control" name="film_preview" aria-label="Загрузить превью" required>
                         <div class="invalid-feedback">Загрузить превью</div>
                     </div>
                     <div class="mb-3">
-                        <input type="file" class="form-control" aria-label="Загрузить видео" required>
+                        <input type="file" class="form-control" name="film_video" aria-label="Загрузить видео" required>
                         <div class="invalid-feedback">Загрузить видео</div>
                     </div>
                     <div class="mb-3">
                         <label for="validationTextarea" class="form-label">Описание</label>
-                        <textarea class="form-control " id="validationTextarea" placeholder="Required example textarea" required></textarea>
-
+                        <textarea class="form-control " name="film_description" id="validationTextarea" placeholder="Required example textarea" required></textarea>
                         <div class="invalid-feedback">
                           Введите описание
                         </div>
                     </div>
                 <div class="mb-3">
                     <label for="validationServer07" class="form-label">Актеры</label>
-                    <input type="text" class="form-control " id="validationServer07" aria-describedby="validationServer07Feedback" required>
+                    <input type="text" class="form-control " name="film_genres" id="validationServer07" aria-describedby="validationServer07Feedback" required>
                     <div class="invalid-feedback"> Введите Актеров</div>
 
                 </div>
                 <div class="mb-3">
+                    <label for="validationServer07" class="form-label">Жанры</label>
+                    <input type="text" class="form-control " name="film_acters" id="validationServer07" aria-describedby="validationServer07Feedback" required>
+                    <div class="invalid-feedback"> Введите жанры</div>
+
+                </div>
+                <div class="mb-3">
                     <label for="validationServer08" class="form-label">Мировые сборы</label>
-                    <input type="text" class="form-control " id="validationServer08" aria-describedby="validationServer08Feedback" required>
+                    <input type="text" class="form-control " name="film_world_money" id="validationServer08" aria-describedby="validationServer08Feedback" required>
                     <div class="invalid-feedback">Мировые сборы</div>
                 </div>
 
                 <div class="mb-3">
                     <label for="validationServer09" class="form-label">Сборы в России</label>
-                    <input type="text" class="form-control " id="validationServer09" aria-describedby="validationServer09Feedback" required>
+                    <input type="text" class="form-control " name="film_rus_money" id="validationServer09" aria-describedby="validationServer09Feedback" required>
                     <div class="invalid-feedback">Сборы в России</div>
                 </div>
 
                 <div class="mb-3">
                     <label for="validationServer05" class="form-label">Год</label>
-                    <input type="text" class="form-control " id="validationServer010" aria-describedby="validationServer010Feedback" required>
+                    <input type="text" class="form-control " name="film_year" id="validationServer010" aria-describedby="validationServer010Feedback" required>
                     <div class="invalid-feedback">Год</div>
                 </div>
                 <div class="mb-3">
-                        <input class="btn btn-primary" type="submit" value="Добавить" >
+                        <input class="btn btn-primary" type="submit" name="add_film" value="Добавить" >
                 </div>
             </form>
         </section>
