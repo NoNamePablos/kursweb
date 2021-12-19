@@ -117,10 +117,39 @@ function update($table,$id,$params){
     dbCheckError($query);
 
 }
+function updateFilms($table,$id,$params){
+    global  $pdo;
+    $i=0;
+    $str='';
 
+    foreach ($params as $key =>$value){
+        if($i===0){
+            $str=$str. $key ." = '".$value."'";
+        }else{
+
+            $str=$str. ", ".$key ." = '".$value."'";
+        }
+
+        $i++;
+    }
+    $sql="UPDATE $table SET $str WHERE id_film = $id ";
+    $query=$pdo->prepare($sql);
+
+    $query->execute($params);
+    dbCheckError($query);
+
+}
 function delete($table,$id){
     global  $pdo;
     $sql="DELETE FROM $table WHERE id = $id";
+    $query=$pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+
+}
+function deleteFilms($table,$id){
+    global  $pdo;
+    $sql="DELETE FROM $table WHERE id_film = $id";
     $query=$pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);

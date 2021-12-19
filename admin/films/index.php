@@ -88,6 +88,7 @@ include '../../app/controllers/films.php';
                     <th scope="col">Сборы в России</th>
                     <th scope="col">Год</th>
                     <th scope="col">Управление</th>
+                    <th scope="col">Опубликовано</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -119,9 +120,14 @@ include '../../app/controllers/films.php';
                     <td><?=$film['film_rus_money'];?></td>
                     <td><?=$film['film_year'];?></td>
                     <td class="admin-table-control">
-                        <a class="admin-table-control_btn btn-primary" href="">edit</a>
-                        <a class="admin-table-control_btn btn-danger" href="">delete</a>
+                        <a class="admin-table-control_btn btn-primary" onclick="return false;" href="edit.php?id=<?=$film['id_film'];?>">edit</a>
+                        <a class="admin-table-control_btn btn-danger"onclick="return false;" href="index.php?delete_id=<?=$film['id_film'];?>">delete</a>
                     </td>
+                    <?php if($film['status']):?>
+                    <td class="status"><a href="edit.php?publish=0&pub_id=<?=$film['id_film'];?>">unpublish</a></td>
+                    <?php else:?>
+                    <td class="status"><a href="edit.php?publish=1&pub_id=<?=$film['id_film'];?>">publish</a></td>
+                    <?php endif; ?>
                 </tr>
               <?php endforeach; ?>
                 </tbody>
