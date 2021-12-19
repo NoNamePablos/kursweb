@@ -1,6 +1,4 @@
 <?php
-
-include '../../app/helpers/path.php';
 include '../../app/Database/db.php';
 include '../../app/controllers/films.php';
 ?>
@@ -94,13 +92,21 @@ include '../../app/controllers/films.php';
                     <label for="validationServer07" class="form-label">Актеры</label>
                     <input type="text" class="form-control " name="film_genres" id="validationServer07" aria-describedby="validationServer07Feedback" required>
                     <div class="invalid-feedback"> Введите Актеров</div>
-
+                </div>
+                <div class="mb-3">
+                    <label for="validationServer07" class="form-label">Страна</label>
+                    <input type="text" class="form-control " name="film_country" id="validationServer07" aria-describedby="validationServer07Feedback" required>
+                    <div class="invalid-feedback"> Введите Страны</div>
+                </div>
+                <div class="mb-3">
+                    <label for="validationServer07" class="form-label">Актеры</label>
+                    <input type="text" class="form-control " name="film_director" id="validationServer07" aria-describedby="validationServer07Feedback" required>
+                    <div class="invalid-feedback"> Введите Режисера</div>
                 </div>
                 <div class="mb-3">
                     <label for="validationServer07" class="form-label">Жанры</label>
                     <input type="text" class="form-control " name="film_acters" id="validationServer07" aria-describedby="validationServer07Feedback" required>
                     <div class="invalid-feedback"> Введите жанры</div>
-
                 </div>
                 <div class="mb-3">
                     <label for="validationServer08" class="form-label">Мировые сборы</label>
@@ -118,6 +124,12 @@ include '../../app/controllers/films.php';
                     <label for="validationServer05" class="form-label">Год</label>
                     <input type="text" class="form-control " name="film_year" id="validationServer010" aria-describedby="validationServer010Feedback" required>
                     <div class="invalid-feedback">Год</div>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="publish" value="1" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Publish?
+                    </label>
                 </div>
                 <div class="mb-3">
                         <input class="btn btn-primary" type="submit" name="add_film" value="Добавить" >

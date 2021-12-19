@@ -126,11 +126,29 @@ function delete($table,$id){
     dbCheckError($query);
 
 }
-
-$arrData=[
-    'admin'=>'0',
-    'username'=>'raideee1',
-    'password'=>'232133213',
-    'email'=>'12312222@mail.ru',
-    'age'=>'22',
-];
+//Выборка под фильмы
+function selectAllFromFilmsWitUsers($table1,$table2){
+    global $pdo;
+    $sql="SELECT
+       t1.id_film,
+       t1.film_year,
+       t1.film_country,
+       t1.film_genres,
+       t1.film_time ,
+       t1.film_director,
+       t1.film_acters,
+       t1.film_description,
+       t1.film_preview,
+       t1.film_video,
+       t1.film_name,
+       t1.film_world_money,
+       t1.film_rus_money,
+       t1.created_date,
+       t1.status,
+       t2.username
+       FROM $table1 AS t1 JOIN $table2 AS t2 ON t1.id_user=t2.id";
+    $query=$pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchAll();
+}
