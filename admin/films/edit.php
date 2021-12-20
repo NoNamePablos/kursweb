@@ -129,7 +129,13 @@ include '../../app/controllers/films.php';
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="publish" value="1" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
-                        Publish?
+                        Опубликован?
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="film_top" value="1" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Добавить в топ фильмы?
                     </label>
                 </div>
                 <div class="mb-3">

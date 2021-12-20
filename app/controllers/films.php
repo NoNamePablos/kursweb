@@ -1,5 +1,5 @@
 <?php
-include '../../app/helpers/path.php';
+include "../../app/helpers/path.php";
 if(!$_SESSION){
     header('location: '.BASE_URL.'logout.php');
 }
@@ -48,6 +48,7 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['add_film'])){
     $director=trim($_POST['film_director']);
     $film_contry=trim($_POST['film_country']);
     $publish=isset($_POST['publish'])?1 :0;
+    $top=isset($_POST['film_top'])?1:0;
     if($title===""||$descr===""||$acters===""||$genres===""){
         $errMsg="Не все поля заполнены !";
     }elseif(mb_strlen($title,'UTF8')<2){
@@ -68,7 +69,8 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['add_film'])){
             'film_world_money'=>(int)$world_money,
             'film_rus_money'=>(int)$rus_money,
             'status'=>$publish,
-            'id_user'=>$_SESSION['id']
+            'id_user'=>$_SESSION['id'],
+            'film_top'=>$top
 
         ];
         $id=insert('films',$arrData);
@@ -149,14 +151,53 @@ if($_SERVER['REQUEST_METHOD']==='GET'&&isset($_GET['id'])){
     $director=$films['film_director'];
     $film_contry=$films['film_country'];
     $publish=$films['publish'];
+    $top=$films['film_top'];
 
 }
+function mail_utf8($to, $from_user, $from_email,
+                   $subject = '(No subject)', $message = '')
+{
+    $from_user = "=?UTF-8?B?".base64_encode($from_user)."?=";
+    $subject = "=?UTF-8?B?".base64_encode($subject)."?=";
+
+    $headers = "From: $from_user <$from_email>\r\n".
+        "MIME-Version: 1.0" . "\r\n" .
+        "Content-type: text/html; charset=UTF-8" . "\r\n";
+
+    return mail($to, $subject, $message, $headers);
+}
+
+//
 if($_SERVER['REQUEST_METHOD']==='GET'&&isset($_GET['pub_id'])){
     $id=$_GET['pub_id'];
     $status=$_GET['publish'];
+    $film=selectOne('films',['id_film'=>$id]);
     updateFilms('films',$id,['status'=>$status]);
+    if($status==1){
+    $usersAll=selectAll('users');
+    foreach ($usersAll as $user){
+        mail_utf8($user['email'],
+            'test123mail12311@mail.ru',
+            'test123mail12311@mail.ru',
+            "added new film",
+            'Новый фильм уже на сайте '.$film['film_name']
+        );
+    }
+    }
     header('location: '. BASE_URL . 'admin/films/index.php');
 }
+
+//Добавить в избранное
+if($_SERVER['REQUEST_METHOD']==='GET'&&isset($_GET['fav'])){
+
+    $fav_id = $_GET['fav'];
+    if (!isset($_SESSION['favourites'])) {
+        $fav_array = array();
+        $_SESSION['favourites'] = $fav_array;
+    }
+    array_push($_SESSION['favourites'], $fav_id);
+}
+
 
 if($_SERVER['REQUEST_METHOD']==='POST'&&isset($_POST['edit_film'])){
     if(!empty($_FILES['film_preview']['name'])){
@@ -197,6 +238,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'&&isset($_POST['edit_film'])){
     $director=trim($_POST['film_director']);
     $film_contry=trim($_POST['film_country']);
     $publish=isset($_POST['publish'])?1 :0;
+    $top=isset($_POST['film_top'])?1 :0;
     if($title===""||$descr===""||$acters===""||$genres===""){
         $errMsg="Не все поля заполнены !";
     }elseif(mb_strlen($title,'UTF8')<2){
@@ -217,8 +259,8 @@ if($_SERVER['REQUEST_METHOD']==='POST'&&isset($_POST['edit_film'])){
             'film_world_money'=>(int)$world_money,
             'film_rus_money'=>(int)$rus_money,
             'status'=>$publish,
-            'id_user'=>$_SESSION['id']
-
+            'id_user'=>$_SESSION['id'],
+            'film_top'=>$top
         ];
         showArr($id_film);
         showArr($arrData);
@@ -237,9 +279,17 @@ if($_SERVER['REQUEST_METHOD']==='GET'&&isset($_GET['delete_id'])){
     deleteFilms('films',$id);
     header('location: '. BASE_URL . 'admin/films/index.php');
 }
+if($_SERVER['REQUEST_METHOD']==='GET'&&isset($_GET['deletefav_id'])){
 
+    foreach ($_SESSION['favourites'] as $item){
 
-
+        foreach ($_SESSION['favourites'] as $key => $value){
+            if ($value == $_GET['deletefav_id']) {
+                unset($_SESSION['favourites'][$key]);
+            }
+        }
+   }
+}
 //   $password=password_hash($_POST['password-second'],PASSWORD_DEFAULT);
 /*$id=insert('users',$arrData);
 $lastRow=selectOne('users',['id'=>$id]);*/

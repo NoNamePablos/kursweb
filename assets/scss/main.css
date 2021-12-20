@@ -571,7 +571,13 @@ nav {
   flex-direction: column;
   width: inherit;
   height: 350px;
+  position: relative;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+.films-item .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 .films-item:not(:first-child) {
   margin-top: 20px;

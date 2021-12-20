@@ -73,6 +73,12 @@
     flex-direction: column;
     width: inherit;
     height: 350px;
+    position:relative;
+    & .close{
+    position: absolute;
+      right: 10px;
+      top:10px
+  }
     &:not(:first-child) {
       margin-top: 20px;
     }

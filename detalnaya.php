@@ -1,7 +1,9 @@
 <?php
 include 'app/helpers/path.php';
+include 'app/Database/db.php';
 include 'app/controllers/users.php';
-
+include 'app/controllers/films.php';
+$film=selectOne('films',['id_film'=>$_GET['film']]);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -27,34 +29,34 @@ include 'app/controllers/users.php';
         <div class="detfilm">
             <div class="detfilm-header">
                 <div class="detfilm-image">
-                    <img src="assets/img/brighton-4th-2021.jpg" alt="">
-                    <button>Добавить в избранное</button>
+                    <img src="<?=BASE_URL.'assets/uploads/'.$film['film_preview'];?>" alt="<?=$film['film_name'];?>">
+                    <a href="detalnaya.php?fav=<?=$film['id_film'];?>">Добавить в избранное</a>
                 </div>
                 <div class="detfilm-description">
                         <div class="films-item-content__setting">
-                          <p>Премьера: <span class="films-item-content__setting-year">2021</span></p>
+                          <p>Премьера: <span class="films-item-content__setting-year"><?=$film['film_year'];?></span></p>
                         </div>
                         <div class="films-item-content__setting">
-                          <p>Страна: <span class="films-item-content__setting-year">Украина</span></p>
+                          <p>Страна: <span class="films-item-content__setting-year"><?=$film['film_country'];?></span></p>
                         </div>
                         <div class="films-item-content__setting">
-                          <p>Продолжительность: <span class="films-item-content__setting-year">50 мин.</span></p>
+                          <p>Продолжительность: <span class="films-item-content__setting-year"><?=$film['film_time'];?> мин.</span></p>
                         </div>
                         <div class="films-item-content__setting">
                           <p>Возрастное ограничение: <span class="films-item-content__setting-year">16</span></p>
                         </div>
                         <div class="films-item-content__setting">
-                          <p>Жанр: <span class="films-item-content__setting-year">Сериалы , Комедия , Детектив</span></p>
+                          <p>Жанр: <span class="films-item-content__setting-year"><?=$film['film_genres'];?></span></p>
                         </div>
           
                         <div class="films-item-content__setting">
-                          <p>Режиссер: <span class="films-item-content__setting-year">Александр Итыгилов мл.</span></p>
+                          <p>Режиссер: <span class="films-item-content__setting-year"><?=$film['film_director'];?></span></p>
                         </div>
                         <div class="films-item-content__setting">
-                          <p>Актерский состав: <span class="films-item-content__setting-year">Дмитрий Белякин, Сергей Бабкин, Георгий Поволоцкий, Дарья Петрожицкая</span></p>
+                          <p>Актерский состав: <span class="films-item-content__setting-year"><?=$film['film_acters'];?></span></p>
                         </div>
                         <div class="films-item-content__setting">
-                          <p>Описание: <span class="films-item-content__setting-year">История молодого юриста Влада Шевчука, который останавливается в шаге от своей мечты - карьеры в Лондонском суде, потому что не может избавиться от "наваждения" - он заметил, что собака брата начинает с ним. . разговаривать. . ...</span></p>
+                          <p>Описание: <span class="films-item-content__setting-year"><?=$film['film_description'];?></span></p>
                         </div>
                 </div>
                 
@@ -66,7 +68,7 @@ include 'app/controllers/users.php';
                    </h4>
                 </div>
                 <div class="detfilm-video--video">
-                    <video src="assets/video/1.mp4" controls="controls"></video>
+                    <video src="<?=BASE_URL.'assets/uploads/'.$film['film_video'];?>" controls="controls"></video>
                 </div>
             </div>
         </div>

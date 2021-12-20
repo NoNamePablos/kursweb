@@ -89,9 +89,9 @@ include '../../app/controllers/films.php';
                         </div>
                     </div>
                 <div class="mb-3">
-                    <label for="validationServer07" class="form-label">Актеры</label>
+                    <label for="validationServer07" class="form-label">Жанры</label>
                     <input type="text" class="form-control " name="film_genres" id="validationServer07" aria-describedby="validationServer07Feedback" required>
-                    <div class="invalid-feedback"> Введите Актеров</div>
+                    <div class="invalid-feedback"> Введите Жанры</div>
                 </div>
                 <div class="mb-3">
                     <label for="validationServer07" class="form-label">Страна</label>
@@ -99,7 +99,7 @@ include '../../app/controllers/films.php';
                     <div class="invalid-feedback"> Введите Страны</div>
                 </div>
                 <div class="mb-3">
-                    <label for="validationServer07" class="form-label">Актеры</label>
+                    <label for="validationServer07" class="form-label">Режисера</label>
                     <input type="text" class="form-control " name="film_director" id="validationServer07" aria-describedby="validationServer07Feedback" required>
                     <div class="invalid-feedback"> Введите Режисера</div>
                 </div>
@@ -128,7 +128,13 @@ include '../../app/controllers/films.php';
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="publish" value="1" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
-                        Publish?
+                        Опубликован?
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="film_top" value="1" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Добавить в топ фильмы?
                     </label>
                 </div>
                 <div class="mb-3">

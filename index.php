@@ -2,6 +2,9 @@
 include 'app/helpers/path.php';
 include 'app/Database/db.php';
 include 'app/controllers/users.php';
+include 'app/controllers/films.php';
+$films=selectAllFromFilmsWitUsersWithStatus('films','users',1);
+showArr($films);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -68,138 +71,31 @@ include 'app/controllers/users.php';
         </div>
         <section class="top-films">
 <!-- Slider main container -->
-
-<div class="swiper">
-    
+    <?php if(count($films)!=0):?>
+    <div class="swiper">
+    <?php endif;?>
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
-      <!-- Slides -->
+        <?php foreach ($films as $film):?>
       <div class="swiper-slide  card">
-        <div class="card-image">
-          <img src="assets/img/brighton-4th-2021.jpg" alt="">
+        <a href='<?=BASE_URL.'detalnaya.php?film='.$film['id_film'];?>' class="card-image">
+          <img src="<?=BASE_URL.'assets/uploads/'.$film['film_preview'];?>" alt="">
             <div class="card-bg">
-              <h4 class="card-bg-name">Title</h4>
+              <h4 class="card-bg-name"><?=$film['film_name'];?></h4>
               <div class="card-bg-content">
                 <div class="card-bg-content--setting">
-                  <p>Год: <span class="card-info" data-info-year="2021">2021</span> </p>
+                  <p>Год: <span class="card-info" ><?=$film['film_year'];?></span> </p>
                 </div>
                 <div class="card-bg-content--setting">
-                  <p>Жанры: <span data-info-genres="Фэнтези,Роман,Дектив">Фэнтези,Роман,Дектив</span></p>
+                  <p>Жанры: <span data-info-genres="Фэнтези,Роман,Дектив"><?=$film['film_genres'];?></span></p>
                 </div>
               </div>
               
             </div>
-        </div>
+        </a>
         
       </div>
-      <div class="swiper-slide  card">
-        <div class="card-image">
-          <img src="assets/img/brighton-4th-2021.jpg" alt="">
-            <div class="card-bg">
-              <h4 class="card-bg-name">Title</h4>
-              <div class="card-bg-content">
-                <div class="card-bg-content--setting">
-                  <p>Год: <span class="card-info" data-info-year="2021">2021</span> </p>
-                </div>
-                <div class="card-bg-content--setting">
-                  <p>Жанры: <span data-info-genres="Фэнтези,Роман,Дектив">Фэнтези,Роман,Дектив</span></p>
-                </div>
-              </div>
-              
-            </div>
-        </div>
-        
-      </div>
-      <div class="swiper-slide  card">
-        <div class="card-image">
-          <img src="assets/img/brighton-4th-2021.jpg" alt="">
-            <div class="card-bg">
-              <h4 class="card-bg-name">Title</h4>
-              <div class="card-bg-content">
-                <div class="card-bg-content--setting">
-                  <p>Год: <span class="card-info" data-info-year="2021">2021</span> </p>
-                </div>
-                <div class="card-bg-content--setting">
-                  <p>Жанры: <span data-info-genres="Фэнтези,Роман,Дектив">Фэнтези,Роман,Дектив</span></p>
-                </div>
-              </div>
-              
-            </div>
-        </div>
-        
-      </div>
-      <div class="swiper-slide  card">
-        <div class="card-image">
-          <img src="assets/img/brighton-4th-2021.jpg" alt="">
-            <div class="card-bg">
-              <h4 class="card-bg-name">Title</h4>
-              <div class="card-bg-content">
-                <div class="card-bg-content--setting">
-                  <p>Год: <span class="card-info" data-info-year="2021">2021</span> </p>
-                </div>
-                <div class="card-bg-content--setting">
-                  <p>Жанры: <span data-info-genres="Фэнтези,Роман,Дектив">Фэнтези,Роман,Дектив</span></p>
-                </div>
-              </div>
-              
-            </div>
-        </div>
-        
-      </div>
-      <div class="swiper-slide  card">
-        <div class="card-image">
-          <img src="assets/img/brighton-4th-2021.jpg" alt="">
-            <div class="card-bg">
-              <h4 class="card-bg-name">Title</h4>
-              <div class="card-bg-content">
-                <div class="card-bg-content--setting">
-                  <p>Год: <span class="card-info" data-info-year="2021">2021</span> </p>
-                </div>
-                <div class="card-bg-content--setting">
-                  <p>Жанры: <span data-info-genres="Фэнтези,Роман,Дектив">Фэнтези,Роман,Дектив</span></p>
-                </div>
-              </div>
-              
-            </div>
-        </div>
-        
-      </div>
-      <div class="swiper-slide  card">
-        <div class="card-image">
-          <img src="assets/img/brighton-4th-2021.jpg" alt="">
-            <div class="card-bg">
-              <h4 class="card-bg-name">Title</h4>
-              <div class="card-bg-content">
-                <div class="card-bg-content--setting">
-                  <p>Год: <span class="card-info" data-info-year="2021">2021</span> </p>
-                </div>
-                <div class="card-bg-content--setting">
-                  <p>Жанры: <span data-info-genres="Фэнтези,Роман,Дектив">Фэнтези,Роман,Дектив</span></p>
-                </div>
-              </div>
-              
-            </div>
-        </div>
-        
-      </div>
-      <div class="swiper-slide  card">
-        <div class="card-image">
-          <img src="assets/img/brighton-4th-2021.jpg" alt="">
-            <div class="card-bg">
-              <h4 class="card-bg-name">Title</h4>
-              <div class="card-bg-content">
-                <div class="card-bg-content--setting">
-                  <p>Год: <span class="card-info" data-info-year="2021">2021</span> </p>
-                </div>
-                <div class="card-bg-content--setting">
-                  <p>Жанры: <span data-info-genres="Фэнтези,Роман,Дектив">Фэнтези,Роман,Дектив</span></p>
-                </div>
-              </div>
-              
-            </div>
-        </div>
-        
-      </div>
+        <?php endforeach;?>
     </div>
     <!-- If we need pagination -->
     <div class="swiper-pagination"></div>
@@ -213,24 +109,25 @@ include 'app/controllers/users.php';
 
       <section class="films">
         <div class="films-list">
+        <?php foreach ($films as $film):?>
           <div class="films-item">
             <h2 class="films-item--title">
-              <a href="">
-                Джек & Лондон (2021) 
+              <a href="<?=BASE_URL.'detalnaya.php?film='.$film['id_film'];?>">
+                <?=$film['film_name'];?>
             </a>
           </h2>
           <div class="films-item-content">
             <div class="  card">
               <div class="card-image">
-                <img src="assets/img/brighton-4th-2021.jpg" alt="">
+                <img src="<?=BASE_URL.'assets/uploads/'.$film['film_preview'];?> " alt="">
                   <div class="card-bg">
-                    <h4 class="card-bg-name">Title</h4>
+                    <h4 class="card-bg-name"><?=$film['film_name'];?></h4>
                     <div class="card-bg-content">
                       <div class="card-bg-content--setting">
-                        <p>Год: <span class="card-info" data-info-year="2021">2021</span> </p>
+                        <p>Год: <span class="card-info" data-info-year="2021"><?=$film['film_year'];?></span> </p>
                       </div>
                       <div class="card-bg-content--setting">
-                        <p>Жанры: <span data-info-genres="Фэнтези,Роман,Дектив">Фэнтези,Роман,Дектив</span></p>
+                        <p>Жанры: <span data-info-genres="Фэнтези,Роман,Дектив"><?=$film['film_genres'];?></span></p>
                       </div>
                     </div>
                     
@@ -240,328 +137,38 @@ include 'app/controllers/users.php';
             </div>
             <div class="films-item-content__settings">
               <div class="films-item-content__setting">
-                <p>Премьера: <span class="films-item-content__setting-year">2021</span></p>
+                <p>Премьера: <span class="films-item-content__setting-year"><?=$film['film_year'];?></span></p>
               </div>
               <div class="films-item-content__setting">
-                <p>Страна: <span class="films-item-content__setting-year">Украина</span></p>
+                <p>Страна: <span class="films-item-content__setting-year"><?=$film['film_country'];?></span></p>
               </div>
               <div class="films-item-content__setting">
-                <p>Продолжительность: <span class="films-item-content__setting-year">50 мин.</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Возрастное ограничение: <span class="films-item-content__setting-year">16</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Жанр: <span class="films-item-content__setting-year">Сериалы , Комедия , Детектив</span></p>
-              </div>
-
-              <div class="films-item-content__setting">
-                <p>Режиссер: <span class="films-item-content__setting-year">Александр Итыгилов мл.</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Актерский состав: <span class="films-item-content__setting-year">Дмитрий Белякин, Сергей Бабкин, Георгий Поволоцкий, Дарья Петрожицкая</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Описание: <span class="films-item-content__setting-year">История молодого юриста Влада Шевчука, который останавливается в шаге от своей мечты - карьеры в Лондонском суде, потому что не может избавиться от "наваждения" - он заметил, что собака брата начинает с ним. . разговаривать. . ...</span></p>
-              </div>
-              <!-- 
-Премьера: 2021
-Страна: Украина
-Продолжительность: 50 мин.
-Возрастное ограничение: 16
-
-Жанр: Сериалы , Комедия , Детектив
-
-Режиссер: Александр Итыгилов мл.
-Актерский состав: Дмитрий Белякин, Сергей Бабкин, Георгий Поволоцкий, Дарья Петрожицкая, Остап Ступка, Николай Боклан, Сергей Калантай, Анастасия Цымбалару, Вячеслав Гиндин
-
-Описание: История молодого юриста Влада Шевчука, который останавливается в шаге от своей мечты - карьеры в Лондонском суде, потому что не может избавиться от "наваждения" - он заметил, что собака брата начинает с ним. . разговаривать. . ...
-
-
-               -->
-            </div>
-          </div>
-          </div>
-          <div class="films-item">
-            <h2 class="films-item--title">
-              <a href="">
-                Джек & Лондон (2021) 
-            </a>
-          </h2>
-          <div class="films-item-content">
-            <div class="  card">
-              <div class="card-image">
-                <img src="assets/img/brighton-4th-2021.jpg" alt="">
-                  <div class="card-bg">
-                    <h4 class="card-bg-name">Title</h4>
-                    <div class="card-bg-content">
-                      <div class="card-bg-content--setting">
-                        <p>Год: <span class="card-info" data-info-year="2021">2021</span> </p>
-                      </div>
-                      <div class="card-bg-content--setting">
-                        <p>Жанры: <span data-info-genres="Фэнтези,Роман,Дектив">Фэнтези,Роман,Дектив</span></p>
-                      </div>
-                    </div>
-                    
-                  </div>
-              </div>
-              
-            </div>
-            <div class="films-item-content__settings">
-              <div class="films-item-content__setting">
-                <p>Премьера: <span class="films-item-content__setting-year">2021</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Страна: <span class="films-item-content__setting-year">Украина</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Продолжительность: <span class="films-item-content__setting-year">50 мин.</span></p>
+                <p>Продолжительность: <span class="films-item-content__setting-year"><?=$film['film_time'];?></span></p>
               </div>
               <div class="films-item-content__setting">
                 <p>Возрастное ограничение: <span class="films-item-content__setting-year">16</span></p>
               </div>
               <div class="films-item-content__setting">
-                <p>Жанр: <span class="films-item-content__setting-year">Сериалы , Комедия , Детектив</span></p>
+                <p>Жанр: <span class="films-item-content__setting-year"><?=$film['film_genres'];?></span></p>
               </div>
 
               <div class="films-item-content__setting">
-                <p>Режиссер: <span class="films-item-content__setting-year">Александр Итыгилов мл.</span></p>
+                <p>Режиссер: <span class="films-item-content__setting-year"><?=$film['film_director'];?></span></p>
               </div>
               <div class="films-item-content__setting">
-                <p>Актерский состав: <span class="films-item-content__setting-year">Дмитрий Белякин, Сергей Бабкин, Георгий Поволоцкий, Дарья Петрожицкая</span></p>
+                <p>Актерский состав: <span class="films-item-content__setting-year"><?=$film['film_acters'];?></span></p>
               </div>
               <div class="films-item-content__setting">
-                <p>Описание: <span class="films-item-content__setting-year">История молодого юриста Влада Шевчука, который останавливается в шаге от своей мечты - карьеры в Лондонском суде, потому что не может избавиться от "наваждения" - он заметил, что собака брата начинает с ним. . разговаривать. . ...</span></p>
+                <p>Описание: <span class="films-item-content__setting-year"><?=$film['film_description'];?></span></p>
               </div>
-              <!-- 
-Премьера: 2021
-Страна: Украина
-Продолжительность: 50 мин.
-Возрастное ограничение: 16
-
-Жанр: Сериалы , Комедия , Детектив
-
-Режиссер: Александр Итыгилов мл.
-Актерский состав: Дмитрий Белякин, Сергей Бабкин, Георгий Поволоцкий, Дарья Петрожицкая, Остап Ступка, Николай Боклан, Сергей Калантай, Анастасия Цымбалару, Вячеслав Гиндин
-
-Описание: История молодого юриста Влада Шевчука, который останавливается в шаге от своей мечты - карьеры в Лондонском суде, потому что не может избавиться от "наваждения" - он заметил, что собака брата начинает с ним. . разговаривать. . ...
-
-
-               -->
             </div>
           </div>
           </div>
-          <div class="films-item">
-            <h2 class="films-item--title">
-              <a href="">
-                Джек & Лондон (2021) 
-            </a>
-          </h2>
-          <div class="films-item-content">
-            <div class="  card">
-              <div class="card-image">
-                <img src="assets/img/brighton-4th-2021.jpg" alt="">
-                  <div class="card-bg">
-                    <h4 class="card-bg-name">Title</h4>
-                    <div class="card-bg-content">
-                      <div class="card-bg-content--setting">
-                        <p>Год: <span class="card-info" data-info-year="2021">2021</span> </p>
-                      </div>
-                      <div class="card-bg-content--setting">
-                        <p>Жанры: <span data-info-genres="Фэнтези,Роман,Дектив">Фэнтези,Роман,Дектив</span></p>
-                      </div>
-                    </div>
-                    
-                  </div>
-              </div>
-              
-            </div>
-            <div class="films-item-content__settings">
-              <div class="films-item-content__setting">
-                <p>Премьера: <span class="films-item-content__setting-year">2021</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Страна: <span class="films-item-content__setting-year">Украина</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Продолжительность: <span class="films-item-content__setting-year">50 мин.</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Возрастное ограничение: <span class="films-item-content__setting-year">16</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Жанр: <span class="films-item-content__setting-year">Сериалы , Комедия , Детектив</span></p>
-              </div>
-
-              <div class="films-item-content__setting">
-                <p>Режиссер: <span class="films-item-content__setting-year">Александр Итыгилов мл.</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Актерский состав: <span class="films-item-content__setting-year">Дмитрий Белякин, Сергей Бабкин, Георгий Поволоцкий, Дарья Петрожицкая</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Описание: <span class="films-item-content__setting-year">История молодого юриста Влада Шевчука, который останавливается в шаге от своей мечты - карьеры в Лондонском суде, потому что не может избавиться от "наваждения" - он заметил, что собака брата начинает с ним. . разговаривать. . ...</span></p>
-              </div>
-              <!-- 
-Премьера: 2021
-Страна: Украина
-Продолжительность: 50 мин.
-Возрастное ограничение: 16
-
-Жанр: Сериалы , Комедия , Детектив
-
-Режиссер: Александр Итыгилов мл.
-Актерский состав: Дмитрий Белякин, Сергей Бабкин, Георгий Поволоцкий, Дарья Петрожицкая, Остап Ступка, Николай Боклан, Сергей Калантай, Анастасия Цымбалару, Вячеслав Гиндин
-
-Описание: История молодого юриста Влада Шевчука, который останавливается в шаге от своей мечты - карьеры в Лондонском суде, потому что не может избавиться от "наваждения" - он заметил, что собака брата начинает с ним. . разговаривать. . ...
-
-
-               -->
-            </div>
-          </div>
-          </div>
-          <div class="films-item">
-            <h2 class="films-item--title">
-              <a href="">
-                Джек & Лондон (2021) 
-            </a>
-          </h2>
-          <div class="films-item-content">
-            <div class="  card">
-              <div class="card-image">
-                <img src="assets/img/brighton-4th-2021.jpg" alt="">
-                  <div class="card-bg">
-                    <h4 class="card-bg-name">Title</h4>
-                    <div class="card-bg-content">
-                      <div class="card-bg-content--setting">
-                        <p>Год: <span class="card-info" data-info-year="2021">2021</span> </p>
-                      </div>
-                      <div class="card-bg-content--setting">
-                        <p>Жанры: <span data-info-genres="Фэнтези,Роман,Дектив">Фэнтези,Роман,Дектив</span></p>
-                      </div>
-                    </div>
-                    
-                  </div>
-              </div>
-              
-            </div>
-            <div class="films-item-content__settings">
-              <div class="films-item-content__setting">
-                <p>Премьера: <span class="films-item-content__setting-year">2021</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Страна: <span class="films-item-content__setting-year">Украина</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Продолжительность: <span class="films-item-content__setting-year">50 мин.</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Возрастное ограничение: <span class="films-item-content__setting-year">16</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Жанр: <span class="films-item-content__setting-year">Сериалы , Комедия , Детектив</span></p>
-              </div>
-
-              <div class="films-item-content__setting">
-                <p>Режиссер: <span class="films-item-content__setting-year">Александр Итыгилов мл.</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Актерский состав: <span class="films-item-content__setting-year">Дмитрий Белякин, Сергей Бабкин, Георгий Поволоцкий, Дарья Петрожицкая</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Описание: <span class="films-item-content__setting-year">История молодого юриста Влада Шевчука, который останавливается в шаге от своей мечты - карьеры в Лондонском суде, потому что не может избавиться от "наваждения" - он заметил, что собака брата начинает с ним. . разговаривать. . ...</span></p>
-              </div>
-              <!-- 
-Премьера: 2021
-Страна: Украина
-Продолжительность: 50 мин.
-Возрастное ограничение: 16
-
-Жанр: Сериалы , Комедия , Детектив
-
-Режиссер: Александр Итыгилов мл.
-Актерский состав: Дмитрий Белякин, Сергей Бабкин, Георгий Поволоцкий, Дарья Петрожицкая, Остап Ступка, Николай Боклан, Сергей Калантай, Анастасия Цымбалару, Вячеслав Гиндин
-
-Описание: История молодого юриста Влада Шевчука, который останавливается в шаге от своей мечты - карьеры в Лондонском суде, потому что не может избавиться от "наваждения" - он заметил, что собака брата начинает с ним. . разговаривать. . ...
-
-
-               -->
-            </div>
-          </div>
-          </div>
-          <div class="films-item">
-            <h2 class="films-item--title">
-              <a href="">
-                Джек & Лондон (2021) 
-            </a>
-          </h2>
-          <div class="films-item-content">
-            <div class="  card">
-              <div class="card-image">
-                <img src="assets/img/brighton-4th-2021.jpg" alt="">
-                  <div class="card-bg">
-                    <h4 class="card-bg-name">Title</h4>
-                    <div class="card-bg-content">
-                      <div class="card-bg-content--setting">
-                        <p>Год: <span class="card-info" data-info-year="2021">2021</span> </p>
-                      </div>
-                      <div class="card-bg-content--setting">
-                        <p>Жанры: <span data-info-genres="Фэнтези,Роман,Дектив">Фэнтези,Роман,Дектив</span></p>
-                      </div>
-                    </div>
-                    
-                  </div>
-              </div>
-              
-            </div>
-            <div class="films-item-content__settings">
-              <div class="films-item-content__setting">
-                <p>Премьера: <span class="films-item-content__setting-year">2021</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Страна: <span class="films-item-content__setting-year">Украина</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Продолжительность: <span class="films-item-content__setting-year">50 мин.</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Возрастное ограничение: <span class="films-item-content__setting-year">16</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Жанр: <span class="films-item-content__setting-year">Сериалы , Комедия , Детектив</span></p>
-              </div>
-
-              <div class="films-item-content__setting">
-                <p>Режиссер: <span class="films-item-content__setting-year">Александр Итыгилов мл.</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Актерский состав: <span class="films-item-content__setting-year">Дмитрий Белякин, Сергей Бабкин, Георгий Поволоцкий, Дарья Петрожицкая</span></p>
-              </div>
-              <div class="films-item-content__setting">
-                <p>Описание: <span class="films-item-content__setting-year">История молодого юриста Влада Шевчука, который останавливается в шаге от своей мечты - карьеры в Лондонском суде, потому что не может избавиться от "наваждения" - он заметил, что собака брата начинает с ним. . разговаривать. . ...</span></p>
-              </div>
-              <!-- 
-Премьера: 2021
-Страна: Украина
-Продолжительность: 50 мин.
-Возрастное ограничение: 16
-
-Жанр: Сериалы , Комедия , Детектив
-
-Режиссер: Александр Итыгилов мл.
-Актерский состав: Дмитрий Белякин, Сергей Бабкин, Георгий Поволоцкий, Дарья Петрожицкая, Остап Ступка, Николай Боклан, Сергей Калантай, Анастасия Цымбалару, Вячеслав Гиндин
-
-Описание: История молодого юриста Влада Шевчука, который останавливается в шаге от своей мечты - карьеры в Лондонском суде, потому что не может избавиться от "наваждения" - он заметил, что собака брата начинает с ним. . разговаривать. . ...
-
-
-               -->
-            </div>
-          </div>
-          </div>
+            <?php endforeach;?>
         </div>
       </section>  
     </main>
-    <? include ('app/includes/footer.php')?>
+    <?php include ('app/includes/footer.php')?>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="assets/js/swiper.js"></script>
     <script src="assets/js/modal.js"></script>
