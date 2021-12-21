@@ -129,9 +129,9 @@ include '../../app/controllers/films.php';
                     <td class="status"><a href="edit.php?publish=1&pub_id=<?=$film['id_film'];?>">publish</a></td>
                     <?php endif; ?>
                     <?php if($film['film_top']):?>
-                        <td class="status"><a href="edit.php?top=0&pub_id=<?=$film['id_film'];?>">Открупить</a></td>
+                        <td class="status"><a href="edit.php?top=0&status_id=<?=$film['id_film'];?>">Открепить</a></td>
                     <?php else:?>
-                        <td class="status"><a href="edit.php?top=1&pub_id=<?=$film['id_film'];?>">Закрепить</a></td>
+                        <td class="status"><a href="edit.php?top=1&status_id=<?=$film['id_film'];?>">Закрепить</a></td>
                     <?php endif; ?>
                 </tr>
               <?php endforeach; ?>
@@ -145,5 +145,7 @@ include '../../app/controllers/films.php';
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="/assets/js/swiper.js"></script>
 <script src="/assets/js/modal.js"></script>
+<script src="/assets/js/burger.js"></script>
+
 </body>
 </html>

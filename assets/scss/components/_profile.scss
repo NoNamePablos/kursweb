@@ -1,15 +1,59 @@
 .detfilm {
   display: flex;
   flex-direction: column;
+  &-description{
+    padding-left: 30px;
+  }
+  &-image{
+    display: flex;
+    flex-direction: column;
+    &--wrapper{
+      width: 180px;
+      height: 250px;
+    }
+    & a{
+      text-align: center;
+      color: black;
+      padding: 5px 0;
+      background-color: #e3e3e3;
+
+    }
+  }
+
   &-header {
     display: flex;
+    @include mobile(){
+      flex-direction: column;
+      & .detfilm-image--wrapper{
+        width: initial;
+        height: initial;
+      }
+      & .detfilm-description{
+        padding-left: 0;
+      }
+    }
     &-description {
       margin-left: 30px;
+
     }
   }
   &-video {
     margin-top: 100px;
     display: flex;
+    &--video{
+
+      & video{
+        width: 650px;
+        height: 330px;
+      }
+      @include mobile(){
+        padding: 0 15px;
+        & video{
+          width: 270px;
+          height: 115px;
+        }
+      }
+    }
     flex-direction: column;
     justify-content: center;
     align-items: center;

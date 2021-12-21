@@ -4,7 +4,7 @@ include 'app/Database/db.php';
 include 'app/controllers/users.php';
 include 'app/controllers/films.php';
 $films=selectAllFromFilmsWitUsersWithStatus('films','users',1);
-showArr($films);
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -64,10 +64,6 @@ showArr($films);
                     </div>
                 </div>
             </div>
-    
-    
-    
-    
         </div>
         <section class="top-films">
 <!-- Slider main container -->
@@ -77,7 +73,7 @@ showArr($films);
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
         <?php foreach ($films as $film):?>
-      <div class="swiper-slide  card">
+      <div class="swiper-slide  card card-main">
         <a href='<?=BASE_URL.'detalnaya.php?film='.$film['id_film'];?>' class="card-image">
           <img src="<?=BASE_URL.'assets/uploads/'.$film['film_preview'];?>" alt="">
             <div class="card-bg">
@@ -172,5 +168,6 @@ showArr($films);
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="assets/js/swiper.js"></script>
     <script src="assets/js/modal.js"></script>
+   <script src="assets/js/burger.js"></script>
   </body>
 </html>

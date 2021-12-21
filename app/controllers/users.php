@@ -72,7 +72,7 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['btn-log'])){
         $_SESSION['admin']=$checkAuthMail['admin'];
 
         if($_SESSION['admin']){
-            header('location: /' . 'admin/admin.php');
+            header('location: /' . 'admin/films/index.php');
         }else{
         header('location: /' );
         }

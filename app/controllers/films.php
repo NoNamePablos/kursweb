@@ -1,8 +1,6 @@
 <?php
 include "../../app/helpers/path.php";
-if(!$_SESSION){
-    header('location: '.BASE_URL.'logout.php');
-}
+
 $isSubmit=false;
 $errMsg='';
 $users_admin=selectAll('users');
@@ -89,53 +87,6 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['add_film'])){
 
 
 
-/*//Авторизация в админке
-if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['create-user'])){
-
-    $login=trim($_POST['login']);
-    $email=trim($_POST['email']);
-    $passwordSecond=trim($_POST['password-second']);
-    $passwordFirst=trim($_POST['password-first']);
-    $admin=0;
-    if($login===""||$email===""||$passwordSecond===""||$passwordFirst===""){
-        $errMsg="Не все поля заполнены !";
-    }elseif(mb_strlen($login,'UTF8')<2){
-        $errMsg="Логин не может быть меньше 2-х символов!ы";
-    }elseif($passwordFirst!==$passwordSecond){
-        $errMsg="Не правильные пароли!";
-    }
-    else{
-        $checkMail=selectOne('users',['email'=>$email]);
-        $checkLogin=selectOne('users',['username'=>$login]);
-
-        if($checkMail['email']===$email){
-            $errMsg="Эта почта уже зарегистрирована!";
-        }elseif($checkLogin['username']===$login){
-            $errMsg="Этот логин уже используется!";
-        }else{
-            $password=password_hash($_POST['password-second'],PASSWORD_DEFAULT);
-            if(isset($_POST['admin']))$admin=1;
-            $arrData=[
-                'admin'=>$admin,
-                'username'=>$login,
-                'password'=>$password,
-                'email'=>trim($email),
-            ];
-            $id=insert('users',$arrData);
-            $isSubmit=true;
-            header('location: '.BASE_URL . 'admin/films/index.php');
-        }
-
-    }
-
-//$lastRow=selectOne('users',['id'=>$id]);
-}else{
-    $login='';
-    $email='';
-
-
-}*/
-
 
 if($_SERVER['REQUEST_METHOD']==='GET'&&isset($_GET['id'])){
     $films=selectOne('films',['id_film'=>$_GET['id']]);
@@ -174,6 +125,33 @@ if($_SERVER['REQUEST_METHOD']==='GET'&&isset($_GET['pub_id'])){
     $film=selectOne('films',['id_film'=>$id]);
     updateFilms('films',$id,['status'=>$status]);
     if($status==1){
+        $usersAll=selectAll('users');
+        foreach ($usersAll as $user){
+            mail_utf8($user['email'],
+                'test123mail12311@mail.ru',
+                'test123mail12311@mail.ru',
+                "added new film",
+                'Новый фильм уже на сайте '.$film['film_name']
+            );
+        }
+    }
+    header('location: '. BASE_URL . 'admin/films/index.php');
+}
+
+if($_SERVER['REQUEST_METHOD']==='GET'&&isset($_GET['status_id'])){
+    $id=$_GET['status_id'];
+    $status=$_GET['top'];
+    $film=selectOne('films',['id_film'=>$id]);
+    updateFilms('films',$id,['film_top'=>$status]);
+    header('location: '. BASE_URL . 'admin/films/index.php');
+}
+
+if($_SERVER['REQUEST_METHOD']==='GET'&&isset($_GET['pub_id'])){
+    $id=$_GET['pub_id'];
+    $status=$_GET['publish'];
+    $film=selectOne('films',['id_film'=>$id]);
+    updateFilms('films',$id,['status'=>$status]);
+    if($status==1){
     $usersAll=selectAll('users');
     foreach ($usersAll as $user){
         mail_utf8($user['email'],
@@ -196,6 +174,7 @@ if($_SERVER['REQUEST_METHOD']==='GET'&&isset($_GET['fav'])){
         $_SESSION['favourites'] = $fav_array;
     }
     array_push($_SESSION['favourites'], $fav_id);
+    header('location: '.BASE_URL.'detalnaya.php?film='.$fav_id);
 }
 
 

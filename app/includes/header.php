@@ -24,25 +24,6 @@
               <li class="header-nav--item">
                 <a href="<?php echo BASE_URL?>catalog.php" class="header-nav--item__link">Каталог</a>
               </li>
-              <li class="header-nav--item">
-                <a href="" class="header-nav--item__link">Что посмотреть?</a>
-              </li>
-              <li class="header-nav--item">
-                <a href="" class="header-svg">
-                  <svg
-                    class="header-logo-ico"
-                    focusable="false"
-                    viewBox="0 0 640 512"
-                    aria-hidden="true"
-                    role="presentation"
-                        >
-                    <path
-                      fill="currentColor"
-                      d="M592 192H473.26c12.69 29.59 7.12 65.2-17 89.32L320 417.58V464c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48V240c0-26.51-21.49-48-48-48zM480 376c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24zm-46.37-186.7L258.7 14.37c-19.16-19.16-50.23-19.16-69.39 0L14.37 189.3c-19.16 19.16-19.16 50.23 0 69.39L189.3 433.63c19.16 19.16 50.23 19.16 69.39 0L433.63 258.7c19.16-19.17 19.16-50.24 0-69.4zM96 248c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24zm128 128c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24zm0-128c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24zm0-128c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24zm128 128c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24z"
-                          ></path>
-                  </svg>
-                </a>
-              </li>
             </ul>
           </nav>
         </div>
@@ -59,15 +40,15 @@
               <span class="header-second-user--active-login">
                   <?php echo $_SESSION['login'];?>
               </span>
-              <div class="header-second-user--active-login--list">
-                  <?php if (isset($_SESSION['admin'])): ?>
-                  <a href="<?=BASE_URL.'admin/films/index.php';?>" class="header-second-user--active-login--item">Админка</a>
-                  <?php  endif;?>
-                <a href="/profile.php" class="header-second-user--active-login--item">Профиль</a>
-                <a href="/settings.php" class="header-second-user--active-login--item">Настройки</a>
-                <a href="/logout.php" class="header-second-user--active-login--item">Выйти</a>
-
-              </div>
+                <div class="header-second-user--active-login--list">
+                    <?php if (isset($_SESSION['admin'])): ?>
+                        <a href="<?=BASE_URL.'admin/films/index.php';?>" class="header-second-user--active-login--item">Админка</a>
+                    <?php  endif;?>
+                    <a href="<?php echo BASE_URL?>catalog.php" class="header-nav--item__link mobile-link">Каталог</a>
+                    <a href="/profile.php" class="header-second-user--active-login--item">Профиль</a>
+                    <a href="/settings.php" class="header-second-user--active-login--item">Настройки</a>
+                    <a href="/logout.php" class="header-second-user--active-login--item">Выйти</a>
+                </div>
           </div>
             <?php else:?>
                 <div class="header-second-user ">

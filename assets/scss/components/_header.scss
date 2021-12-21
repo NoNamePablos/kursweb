@@ -47,6 +47,12 @@ nav {
   z-index: 100;
   top: 0;
   padding: 0 20px;
+  @include tablet(){
+    position: initial;
+    .header-second-user--active{
+
+    }
+  }
   &-navigation {
     height: 100%;
     display: flex;
@@ -122,13 +128,22 @@ nav {
         display: flex;
         align-items: center;
         justify-content: center;
-        &:hover .header-second-user--active-login--list {
-          display: flex;
+
+        @include desktop(){
+          &:hover .header-second-user--active-login--list {
+            display: flex;
+          }
+        }
+        @include tablet(){
+          width: auto;
         }
         &-login {
           width: 50%;
           color: currentColor;
           position: relative;
+          @include tablet(){
+            width: 100%;
+          }
           &--item {
             margin-top: 10px;
 
@@ -149,6 +164,20 @@ nav {
             padding-left: 10px;
             padding-right: 10px;
             padding-top: 10px;
+            @include tablet(){
+                width: 200px;
+                background-color: white;
+                position: absolute;
+                top: 229px;
+                right: 0;
+                display: none;
+                flex-direction: column;
+                padding-bottom: 20px;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-top: 10px;
+                z-index: 100;
+            }
           }
         }
       }
@@ -158,7 +187,22 @@ nav {
 .swiper {
   width: 1000px;
   height: 300px;
+  @include tablet(){
+    width: auto;
+  }
   &-slide {
     width: 180px;
+  }
+}
+
+.header-second-user--active-login--list--burger{
+  display: flex;
+}
+.mobile-link {
+  display: none;
+}
+.header-second-user--active-login--list--burger{
+  & .mobile-link{
+    display: block;
   }
 }

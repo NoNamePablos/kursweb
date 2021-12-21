@@ -117,5 +117,6 @@ if(isset($_SESSION['favourites'])){
     <script src="assets/js/swiper.js"></script>
     <script src="assets/js/modal.js"></script>
     <script src="assets/js/main.js"></script>
+  <script src="assets/js/burger.js"></script>
   </body>
   </html>

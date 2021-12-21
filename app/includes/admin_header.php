@@ -34,7 +34,7 @@
                   <?php echo $_SESSION['login'];?>
               </span>
                     <div class="header-second-user--active-login--list">
-                        <a href="logout.php" class="header-second-user--active-login--item">Выйти</a>
+                        <a href="/logout.php" class="header-second-user--active-login--item">Выйти</a>
                     </div>
                 </div>
             <?php  endif;?>

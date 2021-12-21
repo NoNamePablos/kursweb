@@ -29,7 +29,9 @@ $film=selectOne('films',['id_film'=>$_GET['film']]);
         <div class="detfilm">
             <div class="detfilm-header">
                 <div class="detfilm-image">
-                    <img src="<?=BASE_URL.'assets/uploads/'.$film['film_preview'];?>" alt="<?=$film['film_name'];?>">
+                    <div class="detfilm-image--wrapper">
+                        <img src="<?=BASE_URL.'assets/uploads/'.$film['film_preview'];?>" alt="<?=$film['film_name'];?>">
+                    </div>
                     <a href="detalnaya.php?fav=<?=$film['id_film'];?>">Добавить в избранное</a>
                 </div>
                 <div class="detfilm-description">
@@ -84,5 +86,6 @@ $film=selectOne('films',['id_film'=>$_GET['film']]);
     <script src="assets/js/swiper.js"></script>
     <script src="assets/js/modal.js"></script>
     <script src="assets/js/main.js"></script>
+  <script src="assets/js/burger.js"></script>
   </body>
   </html>

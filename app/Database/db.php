@@ -209,3 +209,23 @@ function selectAllFromFilmsWitUsersWithStatus($table1,$table2,$status){
     dbCheckError($query);
     return $query->fetchAll();
 }
+function countRow($table1){
+    global $pdo;
+    $sql="SELECT COUNT(*) FROM $table1 WHERE status= 1";
+    $query=$pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchColumn();
+}
+//Выборка под фильмы
+function selectAllFromFilmsWitUsersWithStatusIndex($table1,$table2,$limit,$offset){
+    global $pdo;
+    $sql="SELECT
+      t1.*,
+       t2.username
+       FROM $table1 AS t1 JOIN $table2 AS t2 ON t1.id_user=t2.id AND t1.status=1 LIMIT $limit OFFSET $offset";
+    $query=$pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchAll();
+}

@@ -1,10 +1,23 @@
 .admin-wrapper{
   display: flex;
   padding:0 50px;
+@include tablet(){
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+  @include mobile(){
+    padding: 0 10px;
+    &.admin-nav{
+      display: none;
+    }
+  }
   & .admin-table--wrapper{
     flex-grow: 1;
     margin-left: 20px;
     padding-top: 10px;
+    width: 100%;
+    overflow: auto;
   }
   & .admin-table--manage{
     display: flex;
@@ -22,8 +35,17 @@
   & .admin-nav{
     width: 20%;
     margin-left: 20px;
+    &--mobile{
+      display: none;
+      @include tablet(){
+        display: block;
+      }
+    }
     &--list{
       padding:10px;
+      @include tablet(){
+        display: none;
+      }
       &__item{
         width: 100%;
         background-color: #4e6baf;
@@ -112,5 +134,21 @@
     }
   }
 
+}
+.burger-adm{
+  position: relative;
+  width: 100px;
+  height: 50px;
+  background-color: #e3e3e3;
+  border-radius: 6px;
+  &--active{
+    display: block;
+  }
+}
+.admin-nav--list--test{
+  display: none;
+}
+.admin-nav--list--mobile{
+  display: block;
 }
 
