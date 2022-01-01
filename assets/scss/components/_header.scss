@@ -1,8 +1,3 @@
-//
-body {
-  max-width: 1340px;
-  margin: 0 auto;
-}
 
 body {
   color: rgba(0, 0, 0, 0.87);
@@ -25,33 +20,31 @@ li {
 a {
   display: block;
 }
-#header {
-  height: 74px;
-  padding: 8px 0;
-}
 nav {
   height: 100%;
 }
-.header {
-  max-width: 1340px;
-  background-color: rgba(255, 255, 255, 0.95);
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-  flex-wrap: nowrap;
-  box-shadow: 0 2px 17px rgba(0, 0, 0, 0.4);
-  height: 61px;
-  justify-content: space-between;
+#header {
   position: fixed;
   width: 100%;
   z-index: 100;
   top: 0;
+  height: 56px;
+  padding: 8px 0;
+  background-color:var(--background-header);
+}
+
+.header {
+  max-width: 1340px;
+  min-width: 900px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   padding: 0 20px;
   @include tablet(){
     position: initial;
-    .header-second-user--active{
-
-    }
   }
   &-navigation {
     height: 100%;
@@ -99,6 +92,7 @@ nav {
     justify-content: flex-end;
     width: 100%;
     display: flex;
+    align-items: center;
     &--search {
     }
     &-theme {
@@ -112,7 +106,7 @@ nav {
       }
     }
     &-user {
-      @include headerBtn(44px, 44px);
+      @include headerBtn(max-content, 31px);
       &--login {
         background: none;
         padding: 0 5px;

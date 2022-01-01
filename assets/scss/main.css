@@ -5,6 +5,60 @@
   --color-tmp: #fff;
   --color-primary: #1976d2;
   --color-secondary: rgb(17, 82, 147);
+  --button-default-bg: #e0e1e2;
+  --button-default-bg-hover: #d5d7d8;
+  --button-default-bg-active: #cecfd1;
+  --button-default-color: rgba(33,37,41,.8);
+  --button-white-bg: #fff;
+  --button-white-hover: #fafafa;
+  --button-white-color: #212529;
+  --button-white-border: hsla(240,5%,48%,.05);
+  --button-primary-bg: #ffa332;
+  --button-primary-bg-hover: #ff8c00;
+  --button-primary-bg-active: #f28500;
+  --button-primary-color: #fff;
+  --blue: #007feb;
+  --green: #3cce7b;
+  --purple: #6f42c1;
+  --border-base: #e5e5e5;
+  --border-light: #e9e9e9;
+  --border-opacity: rgba(60,60,67,.29);
+  --text-primary: #212529;
+  --text-primary-inverse: #fff;
+  --text-secondary: #818181;
+  --text-muted: #868e96;
+  --text-link: #f77519;
+  --link-border-color: rgba(0,0,0,.16);
+  --text-2: rgba(60,60,67,.6);
+  --background: #f2f2f3;
+  --background-dark: #444;
+  --background-hover: hsla(240,5%,48%,.05);
+  --background-header: #e48f13;
+  --background-highlight: #fbfbfc;
+  --background-fill-1: hsla(240,3%,49%,.2);
+  --background-fill-2: hsla(240,3%,49%,.16);
+  --background-fill-3: hsla(240,4%,48%,.12);
+  --background-fill-4: hsla(240,5%,48%,.05);
+  --background-elevated-1: #fff;
+  --background-elevated-2: #fff;
+  --background-elevated-3: #fff;
+  --foreground: #fff;
+  --foreground-darken: hsla(240,5%,48%,.05);
+  --input-border: #dcdcdc;
+  --input-border-focus: #c0c4cc;
+  --input-bg: #fff;
+  --dropdown-bg: #fff;
+  --tag-bg: #e7edf3;
+  --tag-bg-light: rgba(0,0,0,.05);
+  --tag-bg-light-hover: rgba(0,0,0,.12);
+  --tag-border: #e8eaec;
+  --tag-color: #6b6b6b;
+  --tag-bg-alt: #f7f9fb;
+  --scrollbar-track: #f3f3f3;
+  --scrollbar-thumb: #c1c1c1;
+  --comment-highlight: #ecf6ff;
+  --shadow-default: hsla(0,0%,76%,.17);
+  --radio-group-bg-active: #fff;
 }
 
 .custom-checkbox__field:checked + .custom-checkbox__content::after {
@@ -328,11 +382,6 @@ a {
 }
 
 body {
-  max-width: 1340px;
-  margin: 0 auto;
-}
-
-body {
   color: rgba(0, 0, 0, 0.87);
   font-size: 0.875rem;
   font-family: -apple-system, Nunito Sans, SF Pro Text, SF Pro Icons, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -355,29 +404,29 @@ a {
   display: block;
 }
 
-#header {
-  height: 74px;
-  padding: 8px 0;
-}
-
 nav {
   height: 100%;
 }
 
-.header {
-  max-width: 1340px;
-  background-color: rgba(255, 255, 255, 0.95);
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-  flex-wrap: nowrap;
-  box-shadow: 0 2px 17px rgba(0, 0, 0, 0.4);
-  height: 61px;
-  justify-content: space-between;
+#header {
   position: fixed;
   width: 100%;
   z-index: 100;
   top: 0;
+  height: 56px;
+  padding: 8px 0;
+  background-color: var(--background-header);
+}
+
+.header {
+  max-width: 1340px;
+  min-width: 900px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   padding: 0 20px;
 }
 @media (max-width: 1024px) {
@@ -431,6 +480,7 @@ nav {
   justify-content: flex-end;
   width: 100%;
   display: flex;
+  align-items: center;
 }
 .header-second-theme {
   background: none;
@@ -445,8 +495,8 @@ nav {
   border-radius: 6px;
 }
 .header-second-user {
-  width: 44px;
-  height: 44px;
+  width: max-content;
+  height: 31px;
 }
 .header-second-user--login {
   background: none;
@@ -1325,5 +1375,50 @@ main {
 
 .p7 .is-active {
   background-color: #2ecc71;
+  color: #fff;
+}
+
+.btn.active, .btn:focus, .btn:hover {
+  text-decoration: none;
+  background-color: #d5d7d8;
+  background-color: var(--button-default-bg-hover);
+  color: rgba(33, 37, 41, 0.8);
+  color: var(--button-default-color);
+}
+
+.btn {
+  display: inline-block;
+  min-height: 16px;
+  height: 31px;
+  margin: 0;
+  padding: 0 16px;
+  color: rgba(33, 37, 41, 0.8);
+  color: var(--button-default-color);
+  line-height: 32px;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: none;
+  text-shadow: none;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  outline: 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #e0e1e2;
+  background-color: var(--button-default-bg);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.3s ease;
+  transition: opacity 0.2s ease, color 0.2s ease, background 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:hover {
+  background: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
