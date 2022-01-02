@@ -3,9 +3,7 @@ const swiper = new Swiper('.swiper', {
     // Optional parameters
     direction: 'horizontal',
     loop: false,
-
-      slidesPerView: 1,
-      spaceBetween: 10,
+    slidesPerView: 5,
     // Navigation arrows
     breakpoints: {
         // when window width is >= 320px

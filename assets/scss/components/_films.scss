@@ -2,18 +2,55 @@
   width: 180px;
   height: 250px;
   border-radius: 8px;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.3s ease;
   overflow: hidden;
   &-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 180px;
-    height: 250px;
-    display: block;
-    border-radius: 8px;
-    background-color: black;
-    opacity: 0;
+
+    &__info{
+      position: absolute;
+      top: 16px;
+      left: 17px;
+      z-index: 3;
+      -moz-opacity: 0;
+      opacity: 0;
+      transition: all .3s ease;
+    }
+    &__upbg{
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(12,12,13,.7);
+        border: 4px solid #b73030;
+        -moz-opacity: 0;
+        opacity: 0;
+      transition: all .3s ease;
+
+    }
+    &__play{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      overflow: hidden;
+      width: 58px;
+      height: 58px;
+      margin: -29px 0 0 -29px;
+      background: rgba(200,87,60,.55);
+      transition: all .3s ease;
+      border-radius: 50%;
+      & svg{
+        position: absolute;
+        top: 15px;
+        left: 21px;
+        width: 22px;
+        height: 29px;
+        fill: rgba(255,255,255,.73);
+        transition: all .5s ease;
+      }
+    }
     &-name {
       color: white;
       font-size: 23px;
@@ -34,27 +71,17 @@
   }
 
   &-image {
-    width: 100%;
-    height: inherit;
-    display: block;
+    box-shadow: 0 0 13px 0 rgba(19,20,21,.75);
     position: relative;
-    overflow: hidden;
-
-    img {
-      border-radius: 8px;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      transition: transform 0.5s ease-in-out;
-    }
-    @include desktop(){
-      &:hover img {
-        transform: scale(1.1);
-        border-radius: 8px;
+    transition: all .3s ease;
+    &:hover{
+      & .card-bg__upbg{
+        -moz-opacity: 1;
+        opacity: 1;
       }
-      &:hover > .card-bg {
-        opacity: 0.6;
+      & .card-bg__info{
+        -moz-opacity: 1;
+        opacity: 1;
       }
     }
   }
