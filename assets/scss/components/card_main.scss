@@ -1,7 +1,6 @@
 .card-main{
   width: 200px !important;
   height: 250px;
-  margin-right: 0 !important;
   &--title{
     font-size: 14px;
     font-weight: 700;
@@ -44,9 +43,12 @@
   }
 }
 .swiper-slide{
-  & .item{
+ /* & .item{
     margin:10px;
-  }
+  }*/
+}
+.swiper{
+  width: 100%;
 }
 .swiper-wrapper{
   justify-content: center;

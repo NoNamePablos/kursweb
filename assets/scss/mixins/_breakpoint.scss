@@ -15,3 +15,20 @@
     @content;
   }
 }
+@mixin from($min_width){
+  @media screen and (min-width: $min_width){
+    @content;
+  }
+}
+
+@mixin to($max_width){
+  @media screen and (max-width: $max_width){
+    @content;
+  }
+}
+
+@mixin from-to($min_width, $max_width){
+  @media screen and (min-width: $min_width) and (max-width: $max_width){
+    @content;
+  }
+}

@@ -424,7 +424,11 @@ nav {
 .section {
   background: var(--foreground);
   border-radius: 4px;
-  padding: 10px 14px;
+}
+@media screen and (min-width: 426px) {
+  .section {
+    padding: 10px 14px;
+  }
 }
 
 .header {
@@ -441,6 +445,7 @@ nav {
 @media (max-width: 1024px) {
   .header {
     position: initial;
+    min-width: 100%;
   }
 }
 .header-navigation {
@@ -592,6 +597,21 @@ nav {
 .wrapper {
   padding: 0 200px;
 }
+@media screen and (max-width: 1280px) {
+  .wrapper {
+    padding: 0 50px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .wrapper {
+    padding: 0 10px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .wrapper {
+    padding: 0;
+  }
+}
 
 .header-second-user--active-login--list--burger {
   display: flex;
@@ -611,6 +631,11 @@ nav {
   border-radius: 8px;
   transition: opacity 0.3s ease;
   overflow: hidden;
+}
+.card-bg__image {
+  width: 180px;
+  height: 248px;
+  min-width: 100%;
 }
 .card-bg__info {
   position: absolute;
@@ -693,9 +718,53 @@ nav {
   width: 100%;
   margin: 50px 0;
 }
+@media screen and (min-width: 426px) {
+  .films-wrapper {
+    padding: 0 15px;
+  }
+}
+.films-card .tooltip--wrapper {
+  display: none;
+}
+.films-card .card-main--title {
+  display: none;
+}
+.films-card .info--tooltip__popup {
+  top: 0;
+  right: auto;
+  left: 49px;
+  background-color: var(--button-default-bg);
+}
+.films-card .info--tooltip__popup:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  right: auto;
+  width: 0;
+  height: 0;
+  border: 11px solid transparent;
+  border-right-color: transparent;
+  border-right-color: var(--button-default-bg);
+}
+.films-title {
+  text-transform: uppercase;
+  line-height: 50px;
+  font-weight: 700;
+  height: 50px;
+  background: var(--background-header);
+  color: #FFF;
+  font-size: 18px;
+  text-align: center;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0px 6px 5px -2px rgba(228, 143, 19, 0.3);
+  -moz-box-shadow: 0px 6px 5px -2px rgba(228, 143, 19, 0.3);
+  box-shadow: 0px 6px 5px -2px rgba(228, 143, 19, 0.3);
+}
 .films-list {
   width: inherit;
-  padding: 0 15px;
   margin-bottom: 15px;
 }
 .films-item {
@@ -741,10 +810,27 @@ nav {
   font-weight: normal;
   line-height: 18px;
   font-size: 14px;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -ms-line-clamp: 3;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  display: -webkit-box;
+  display: box;
+  word-wrap: break-word;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
 }
 .films-item-content__settings {
   height: 100%;
   width: 75%;
+}
+@media screen and (min-width: 781px) {
+  .films-item-content__settings {
+    padding-left: 15px;
+  }
 }
 .films-item-content .card {
   margin-right: 30px;
@@ -949,30 +1035,46 @@ fieldset {
   }
 }
 .catalog {
+  max-width: 1340px;
   display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+.catalog-card .card-main--rate {
+  margin-top: -5px;
+}
+.catalog-card .info--tooltip__popup {
+  top: 0;
+  right: auto;
+  left: 49px;
+  background-color: var(--button-default-bg);
+}
+.catalog-card .info--tooltip__popup:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  right: auto;
+  width: 0;
+  height: 0;
+  border: 11px solid transparent;
+  border-right-color: transparent;
+  border-right-color: var(--button-default-bg);
+}
+.catalog-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 20px 40px 20px;
+  background-color: rgba(227, 227, 227, 0.6);
 }
 .catalog-grid {
   width: 80%;
   display: grid;
   row-gap: 20px;
   grid-column-gap: 20px;
-  grid-template-columns: repeat(4, minmax(50px, 180px));
-  grid-template-rows: 250px;
-}
-.catalog-filters {
-  width: 20%;
-  border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-}
-.catalog-filter {
-  display: flex;
-  flex-direction: column;
-  height: 200px;
-  overflow-y: scroll;
-}
-.catalog-filter .mycustom {
-  height: 100px;
-  margin-bottom: 10px;
+  grid-template-columns: repeat(4, minmax(50px, 250px));
+  grid-template-rows: 350px;
 }
 
 .reset-form {
@@ -1378,7 +1480,6 @@ main {
 .card-main {
   width: 200px !important;
   height: 250px;
-  margin-right: 0 !important;
 }
 .card-main--title {
   font-size: 14px;
@@ -1416,8 +1517,14 @@ main {
   fill: var(--color-white);
 }
 
-.swiper-slide .item {
-  margin: 10px;
+.swiper-slide {
+  /* & .item{
+     margin:10px;
+   }*/
+}
+
+.swiper {
+  width: 100%;
 }
 
 .swiper-wrapper {

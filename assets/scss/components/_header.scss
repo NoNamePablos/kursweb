@@ -36,7 +36,9 @@ nav {
 .section{
   background: var(--foreground);
   border-radius: 4px;
-  padding: 10px 14px;
+  @include from(426px){
+    padding: 10px 14px;
+  }
 }
 
 .header {
@@ -51,6 +53,7 @@ nav {
   padding: 0 20px;
   @include tablet(){
     position: initial;
+    min-width: 100%;
   }
   &-navigation {
     height: 100%;
@@ -194,6 +197,15 @@ nav {
 }*/
 .wrapper{
   padding: 0 200px;
+  @include to(1280px){
+    padding: 0 50px;
+  }
+  @include to(720px){
+    padding: 0 10px;
+  }
+  @include to(425px){
+    padding: 0;
+  }
 }
 .header-second-user--active-login--list--burger{
   display: flex;
