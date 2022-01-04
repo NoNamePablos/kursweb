@@ -1,7 +1,71 @@
 .pagination{
-  padding: 30px 0;
+  background: #1b1b1c;
+  height: 80px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  &-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &-settings{
+    display: flex;
+    align-items: center;
+  }
+  &-input{
+    @include headerBtn(max-content,31px);
+  }
+  &-link{
+    @include headerBtn(max-content,31px);
+  }
+  &-setting{
+    display: flex;
+    align-items: center;
+
+  }
+
+  &-item{
+    width: 73px;
+    height: 73px;
+    background: #151516;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & svg{
+      top: 25px;
+      left: 29px;
+      width: 16px;
+      height: 24px;
+      fill: #5c5c5d;
+    }
+  }
+  &-prev{
+    & span {
+      & svg{
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &-disabled{
+    & svg{
+      fill:#5c5c5d;
+    }
+  }
+  &-active{
+    & svg{
+      fill:var(--color-white);
+    }
+  }
+  &-next{
+  }
+
 }
 
+/*
 .pagination ul{
   margin: 0;
   padding: 0;
@@ -18,9 +82,10 @@
   margin: auto 5px;
   color: #2ecc71;
   font-weight: bold;
+  border-radius: 25px;
 }
 
 .p7 .is-active{
   background-color: #2ecc71;
   color: #fff;
-}
+}*/

@@ -5,6 +5,10 @@
   justify-content: center;
   margin: 0 auto;
   margin-top: 80px;
+  &-info{
+    text-align: center;
+    margin:20px 0;
+  }
   &-card{
     & .card-main--rate{
       margin-top: -5px;
@@ -43,5 +47,21 @@
     grid-column-gap: 20px;
     grid-template-columns: repeat(4, minmax(50px, 250px));
     grid-template-rows: 350px;
+    @include to(1280px){
+      grid-template-columns: repeat(2, minmax(50px, 250px));
+      & .card-main{
+        justify-self: center;
+      }
+    }
+    @include to(720px){
+      width: 100%;
+      margin:0 10px;
+    }
+    @include to(600px){
+      grid-template-columns: repeat(1, minmax(50px, 1fr));
+      grid-template-rows: max-content;
+    }
+
+    margin:0 auto;
   }
 }

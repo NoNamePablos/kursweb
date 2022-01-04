@@ -1041,6 +1041,10 @@ fieldset {
   margin: 0 auto;
   margin-top: 80px;
 }
+.catalog-info {
+  text-align: center;
+  margin: 20px 0;
+}
 .catalog-card .card-main--rate {
   margin-top: -5px;
 }
@@ -1075,6 +1079,27 @@ fieldset {
   grid-column-gap: 20px;
   grid-template-columns: repeat(4, minmax(50px, 250px));
   grid-template-rows: 350px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1280px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(50px, 250px));
+  }
+  .catalog-grid .card-main {
+    justify-self: center;
+  }
+}
+@media screen and (max-width: 720px) {
+  .catalog-grid {
+    width: 100%;
+    margin: 0 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .catalog-grid {
+    grid-template-columns: repeat(1, minmax(50px, 1fr));
+    grid-template-rows: max-content;
+  }
 }
 
 .reset-form {
@@ -1533,33 +1558,84 @@ main {
 }
 
 .pagination {
-  padding: 30px 0;
+  background: #1b1b1c;
+  height: 80px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 80%;
+  display: flex;
+  align-items: center;
 }
-
-.pagination ul {
+.pagination-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.pagination-settings {
+  display: flex;
+  align-items: center;
+}
+.pagination-input {
+  width: max-content;
+  height: 31px;
+}
+.pagination-link {
+  width: max-content;
+  height: 31px;
+}
+.pagination-setting {
+  display: flex;
+  align-items: center;
+}
+.pagination-item {
+  width: 73px;
+  height: 73px;
+  background: #151516;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination-item svg {
+  top: 25px;
+  left: 29px;
+  width: 16px;
+  height: 24px;
+  fill: #5c5c5d;
+}
+.pagination-prev span svg {
+  transform: rotate(180deg);
+}
+.pagination-disabled svg {
+  fill: #5c5c5d;
+}
+.pagination-active svg {
+  fill: var(--color-white);
+}
+/*
+.pagination ul{
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-.pagination a {
+.pagination a{
   display: inline-block;
   padding: 10px 18px;
   color: #222;
 }
-
-.p7 a {
+.p7 a{
   border: 3px solid #2ecc71;
   margin: auto 5px;
   color: #2ecc71;
   font-weight: bold;
+  border-radius: 25px;
 }
 
-.p7 .is-active {
+.p7 .is-active{
   background-color: #2ecc71;
   color: #fff;
-}
-
+}*/
 .btn.active, .btn:focus, .btn:hover {
   text-decoration: none;
   background-color: #d5d7d8;

@@ -67,6 +67,9 @@ $films=selectAllFromFilmsWitUsersWithStatusIndex('films','users',$limit,$offset)
         </div>
     <section class="catalog ">
         <div class="catalog-wrapper">
+            <div class="catalog-info">
+                <h2>Фильмы</h2>
+            </div>
             <div class="catalog-grid section">
                 <?php foreach ($films as $film):?>
                     <div class="swiper-slide catalog-card card-main">
