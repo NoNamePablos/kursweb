@@ -1,0 +1,136 @@
+.comment{
+  &-wrapper{
+
+  }
+  &-title{
+    font-size: 20px;
+    font-weight: 700;
+    color: currentColor;
+    padding: 0 0 14px 7px;
+    text-transform: uppercase;
+    margin-right: auto;
+  }
+  &-form{
+    display: flex;
+    flex-direction: column;
+    width: 650px;
+    align-items: flex-start;
+    justify-content: center;
+
+  }
+  &--list{
+
+  }
+  &-list{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+  &-item{
+    padding: 12px 8px;
+    background-color: #fff;
+    background-color: var(--foreground);
+    border-radius: 6px;
+    &:not(:last-child){
+      margin-bottom: 15px;
+    }
+    &--header{
+      display: flex;
+      justify-content: space-between;
+    }
+    &--login{
+      display: flex;
+      & span{
+        margin-right: 5px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: var(--text-primary);
+        font-weight: 700;
+        max-width: 220px;
+        &:hover{
+          color: var(--primary);
+        }
+      }
+
+    }
+    &--rate{
+      height: 39px;
+      padding: 0 10px;
+      &_count{
+        display: inline-block;
+        color: #868686;
+        vertical-align: middle;
+        padding: 0 5px;
+        font-weight: 700;
+        font-size: 16px;
+      }
+      &-item{
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        text-decoration: none;
+        vertical-align: middle;
+
+        &>svg{
+          display: block;
+          width: 100%;
+          height: auto;
+          line-height: 39px;
+        }
+      }
+      &_up{
+
+        & svg{
+          fill: #71ce3f;
+
+        }
+      }
+      &_down{
+        & svg{
+          fill: #ba3636;
+        }
+      }
+    }
+    &--content{
+      margin: 8px 0 4px;
+      font-size: 14px;
+      line-height: 22px;
+      word-wrap: break-word;
+      word-break: break-word;
+    }
+    &--datetime{
+      color: #818181;
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+  }
+
+  &-area{
+    max-width: 100%;
+    resize:none;
+    overflow-y:auto;
+    overflow-x: hidden;
+    min-height: 100px;
+    height: 150px;
+    max-height: 200px;
+    width: 650px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+  }
+
+  &-btn{
+    @include headerBtn(100px,31px);
+    margin-right: auto;
+    background-color: var(--button-primary-bg);
+    transition: background-color 0.4s ease;
+    color: var(--button-primary-color) ;
+    &:hover{
+      background-color:var(--button-primary-bg-hover);
+    }
+    &:active{
+      background-color: var(--button-primary-bg-active);
+    }
+  }
+}

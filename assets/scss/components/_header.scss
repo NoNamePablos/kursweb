@@ -131,6 +131,7 @@ nav {
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
 
         @include desktop(){
           &:hover .header-second-user--active-login--list {
@@ -143,7 +144,6 @@ nav {
         &-login {
           width: 50%;
           color: currentColor;
-          position: relative;
           @include tablet(){
             width: 100%;
           }
@@ -157,9 +157,9 @@ nav {
           }
           &--list {
             width: 200px;
-            background-color: white;
+            background-color: var(--background);
             position: absolute;
-            top: 40px;
+            top: 20px;
             right: 0;
             display: none;
             flex-direction: column;
@@ -167,19 +167,15 @@ nav {
             padding-left: 10px;
             padding-right: 10px;
             padding-top: 10px;
-            @include tablet(){
-                width: 200px;
-                background-color: white;
-                position: absolute;
-                top: 229px;
-                right: 0;
-                display: none;
-                flex-direction: column;
-                padding-bottom: 20px;
-                padding-left: 10px;
-                padding-right: 10px;
-                padding-top: 10px;
-                z-index: 100;
+            border-top-right-radius: 6px;
+            border-top-left-radius: 6px;
+            border: 1px solid var(--background-header);
+            &.header-second-user--active-login--list--burger{
+              width: 100vw;
+              height: 100vh;
+              border-radius:initial;
+              top: 36px;
+              right: -20px;
             }
           }
         }

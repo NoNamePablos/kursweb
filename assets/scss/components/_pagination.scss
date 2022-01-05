@@ -18,6 +18,10 @@
   }
   &-input{
     @include headerBtn(max-content,31px);
+    @include to(1280px){
+      width: 115px;
+    }
+
   }
   &-link{
     @include headerBtn(max-content,31px);
@@ -25,6 +29,21 @@
   &-setting{
     display: flex;
     align-items: center;
+    @include to(720px){
+      flex-direction: column;
+      & .pagination-link{
+        width: 100%;
+      }
+    }
+    @include  to(425px){
+      width: 70px;
+      &>*{
+        width: 100%;
+      }
+      & .btn{
+        padding:0;
+      }
+    }
 
   }
 

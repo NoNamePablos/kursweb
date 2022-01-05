@@ -27,6 +27,9 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  @include to(540px){
+    margin-top: 75px;
+  }
 }
 main {
   min-height: calc(100vh - 80px);

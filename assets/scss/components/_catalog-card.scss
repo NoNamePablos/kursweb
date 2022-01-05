@@ -52,6 +52,9 @@
       & .card-main{
         justify-self: center;
       }
+      & .card-main{
+        height: initial;
+      }
     }
     @include to(720px){
       width: 100%;
