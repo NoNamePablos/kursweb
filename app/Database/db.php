@@ -229,3 +229,121 @@ function selectAllFromFilmsWitUsersWithStatusIndex($table1,$table2,$limit,$offse
     dbCheckError($query);
     return $query->fetchAll();
 }
+
+/*
+ * Функиции для систеиы рейтинга фильмов
+ * */
+
+function insertRating($table,$params=[]){
+    global  $pdo;
+    $i=0;
+    $coll='';
+    $mask='';
+
+    foreach ($params as $key =>$value){
+        if($i===0){
+            $coll=$coll ."$key";
+            $mask=$mask."'"."$value"."'";
+        }else{
+            $coll=$coll .", $key";
+            $mask=$mask.", '"."$value"."'";
+        }
+        $i++;
+    }
+    $lastEl = array_values(array_slice($params, -1))[0];
+    $lastKey=array_key_last($params);
+    $sql="INSERT INTO $table ($coll) VALUES($mask)";
+    $sql=$sql." ON DUPLICATE KEY UPDATE $lastKey='$lastEl'";
+    $query=$pdo->prepare($sql);
+    $query->execute($params);
+    dbCheckError($query);
+}
+function getLikes($id)
+{
+    global $pdo;
+
+    $sql = "SELECT COUNT(*) 
+					FROM films_rating 
+					WHERE id_film = $id 
+					 AND rating_action='like'";
+
+    $query=$pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+
+    return $query->fetch()["COUNT(*)"];
+}
+function getDislikes($id)
+{
+    global $pdo;
+
+    $sql = "SELECT COUNT(*) 
+					FROM films_rating 
+					WHERE id_film = $id 
+					 AND rating_action='dislike'";
+
+    $query=$pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+
+    return $query->fetch()["COUNT(*)"];
+}
+function getRating($id)
+{
+    global $pdo;
+    $rating = array();
+
+    $likes_query = "SELECT COUNT(*) 
+					FROM films_rating 
+					WHERE id_film = $id 
+					 AND rating_action='like'";
+
+    $dislikes_query = "SELECT COUNT(*) 
+					FROM films_rating 
+					WHERE id_film = $id 
+					 AND rating_action='dislike'";
+    $query=$pdo->prepare($likes_query);
+    $query->execute();
+    dbCheckError($query);
+    $query1=$pdo->prepare($dislikes_query);
+    $query1->execute();
+    dbCheckError($query1);
+    $rating = [
+        'likes' => $query->fetch()["COUNT(*)"],
+        'dislikes' => $query1->fetch()["COUNT(*)"]
+    ];
+
+    return json_encode($rating);
+}
+function userLiked($id_film)
+{
+    global $pdo;
+    $id_user=$_SESSION['id'];
+
+    $sql = "SELECT * FROM films_rating 
+					WHERE id_user=$id_user AND id_film=$id_film AND rating_action='like'";
+    $query=$pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    if ($query->rowCount() > 0) {
+        return true;
+    }else{
+        return false;
+    }
+}
+function userDisliked($id_film)
+{
+    global $pdo;
+    $id_user=$_SESSION['id'];
+
+    $sql = "SELECT * FROM films_rating 
+					WHERE id_user=$id_user AND id_film=$id_film AND rating_action='dislike'";
+    $query=$pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    if ($query->rowCount() > 0) {
+        return true;
+    }else{
+        return false;
+    }
+}
