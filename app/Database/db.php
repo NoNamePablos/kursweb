@@ -230,11 +230,38 @@ function selectAllFromFilmsWitUsersWithStatusIndex($table1,$table2,$limit,$offse
     return $query->fetchAll();
 }
 
+
+function selectLastComment($table1,$table2,$lastId){
+    global $pdo;
+    $sql="SELECT
+      t1.*,
+       t2.username
+       FROM $table1 AS t1 JOIN $table2 AS t2 ON t1.id_user=t2.id AND t1.id_comment=$lastId";
+    $query=$pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetch();
+}
+
+function selectAllComments($table1,$table2){
+    global $pdo;
+    $sql="SELECT
+      t1.*,
+       t2.username
+       FROM $table1 AS t1 JOIN $table2 AS t2 ON t1.id_user=t2.id";
+    $query=$pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchAll();
+}
 /*
  * Функиции для систеиы рейтинга фильмов
  * */
 
 function insertRating($table,$params=[]){
+    /*
+     * обновляет данные лайка и дизлайка unlike и undislike отдельная функцияы
+     * */
     global  $pdo;
     $i=0;
     $coll='';
@@ -256,6 +283,15 @@ function insertRating($table,$params=[]){
     $sql=$sql." ON DUPLICATE KEY UPDATE $lastKey='$lastEl'";
     $query=$pdo->prepare($sql);
     $query->execute($params);
+    dbCheckError($query);
+}
+
+
+function unInsertRataing($table,$id_user,$id_film){
+    global  $pdo;
+    $sql="DELETE FROM $table WHERE id_user = $id_user AND id_film=$id_film";
+    $query=$pdo->prepare($sql);
+    $query->execute();
     dbCheckError($query);
 }
 function getLikes($id)
@@ -347,3 +383,5 @@ function userDisliked($id_film)
         return false;
     }
 }
+
+

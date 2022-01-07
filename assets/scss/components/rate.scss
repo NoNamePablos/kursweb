@@ -11,21 +11,36 @@
     fill:var(--color-rate-positiv);
     color: var(--color-rate-positiv);
   }
+  &__clc{
+    &__positiv{
+      fill:var(--color-rate-positiv);
+      color: var(--color-rate-positiv);
+    }
+    &__negativ{
+      fill:var(--color-rate-negativ);
+      color: var(--color-rate-negativ);
+      & svg{
+        transform: rotate(180deg);
+      }
+    }
+  }
   &__negativ{
     fill:var(--color-rate-negativ);
     color: var(--color-rate-negativ);
-    transform: rotate(180deg);
+    & svg{
+      transform: rotate(180deg);
+    }
   }
   & span{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
+    width: 30px;
     height: 100%;
     margin: 0 auto;
   }
   & svg{
-    width: 18px;
-    height: 17px;
+    width: 30px;
+    height: 30px;
   }
 }

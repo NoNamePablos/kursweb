@@ -1898,22 +1898,35 @@ main {
   fill: var(--color-rate-positiv);
   color: var(--color-rate-positiv);
 }
+.rate__clc__positiv {
+  fill: var(--color-rate-positiv);
+  color: var(--color-rate-positiv);
+}
+.rate__clc__negativ {
+  fill: var(--color-rate-negativ);
+  color: var(--color-rate-negativ);
+}
+.rate__clc__negativ svg {
+  transform: rotate(180deg);
+}
 .rate__negativ {
   fill: var(--color-rate-negativ);
   color: var(--color-rate-negativ);
+}
+.rate__negativ svg {
   transform: rotate(180deg);
 }
 .rate span {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
+  width: 30px;
   height: 100%;
   margin: 0 auto;
 }
 .rate svg {
-  width: 18px;
-  height: 17px;
+  width: 30px;
+  height: 30px;
 }
 
 .comment-title {
