@@ -243,12 +243,12 @@ function selectLastComment($table1,$table2,$lastId){
     return $query->fetch();
 }
 
-function selectAllComments($table1,$table2){
+function selectAllComments($table1,$table2,$id_film){
     global $pdo;
     $sql="SELECT
       t1.*,
        t2.username
-       FROM $table1 AS t1 JOIN $table2 AS t2 ON t1.id_user=t2.id";
+       FROM $table1 AS t1 JOIN $table2 AS t2 ON t1.id_user=t2.id AND t1.id_film=$id_film";
     $query=$pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);

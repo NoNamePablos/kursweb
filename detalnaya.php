@@ -3,8 +3,14 @@ include 'app/helpers/path.php';
 include 'app/Database/db.php';
 include 'app/controllers/users.php';
 include 'app/controllers/films.php';
+include  'app/helpers/helps_functions.php';
 $film=selectOne('films',['id_film'=>$_GET['film']]);
-$comments=selectAllComments('film_comments','users');
+$rating=calcRating($_GET['film']);
+$maxVotes=getSumVotes($_GET['film']);
+/*
+ * Сделать для функии поиск по id иначе он всё выводит
+ * */
+$comments=selectAllComments('film_comments','users',$_GET['film']);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -124,6 +130,9 @@ $comments=selectAllComments('film_comments','users');
                     </a>
                     <div class="detfilm-description">
                         <div class="films-item-content__setting">
+                            <p>Ретинг: <span class="films-item-content__setting-year"><?=$rating;?> || <?=$maxVotes;?></span></p>
+                        </div>
+                        <div class="films-item-content__setting">
                             <p>Премьера: <span class="films-item-content__setting-year"><?=$film['film_year'];?></span></p>
                         </div>
                         <div class="films-item-content__setting">
@@ -178,6 +187,7 @@ $comments=selectAllComments('film_comments','users');
                                 Комментарии
                             </h3>
                             <div class="comment-list">
+                                <?php if(!empty($comments)):?>
                                 <?php foreach ($comments as $comm):?>
                                 <div class="comment-item" data-id="${comm.id_comment}">
                                     <div class="comment-item--header">
@@ -204,7 +214,7 @@ $comments=selectAllComments('film_comments','users');
                                     </div>
                                 </div>
                                 <?php endforeach;?>
-
+                                <?php endif;?>
                             </div>
                         </div>
 
