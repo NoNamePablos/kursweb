@@ -176,7 +176,7 @@ $films=selectAllFromFilmsWitUsersWithStatus('films','users',1);
                                         <?php endif;?>
                                     </div>
                                   <h2 class="card-main--title">
-                                      <a href="<?=BASE_URL.'detalnaya.php?film='.$film['id_film'];?>">
+                                      <a href='<?=BASE_URL.'detalnaya.php?film='.$film['id_film'];?>'>
                                           <?=$film['film_name'];?>
                                       </a>
                                   </h2>

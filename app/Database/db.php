@@ -229,6 +229,18 @@ function selectAllFromFilmsWitUsersWithStatusIndex($table1,$table2,$limit,$offse
     dbCheckError($query);
     return $query->fetchAll();
 }
+//Выборка под все посты
+function selectAllPostIndex($table1,$table2,$limit,$offset){
+    global $pdo;
+    $sql="SELECT
+      t1.*,
+       t2.*
+       FROM $table1 AS t1 JOIN $table2 AS t2 ON t1.id_film=t2.id_film AND t1.status=1 LIMIT $limit OFFSET $offset";
+    $query=$pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchAll();
+}
 
 
 function selectLastComment($table1,$table2,$lastId){
@@ -300,7 +312,7 @@ function getLikes($id)
 
     $sql = "SELECT COUNT(*) 
 					FROM films_rating 
-					WHERE id_film = $id 
+					WHERE id_film = $id
 					 AND rating_action='like'";
 
     $query=$pdo->prepare($sql);
@@ -328,7 +340,6 @@ function getRating($id)
 {
     global $pdo;
     $rating = array();
-
     $likes_query = "SELECT COUNT(*) 
 					FROM films_rating 
 					WHERE id_film = $id 

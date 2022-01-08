@@ -4,7 +4,7 @@
     <ul class="admin-nav--list">
         <li class="admin-nav--list__item" ><a class="admin-nav--list__item-link" href=" <?= BASE_URL."admin/films/index.php"?>">Фильмы</a></li>
         <li class="admin-nav--list__item"><a class="admin-nav--list__item-link" href="<?= BASE_URL. "admin/users/index.php";?>">Пользователи</a></li>
-        <li class="admin-nav--list__item"><a class="admin-nav--list__item-link" href="">Тест</a></li>
+        <li class="admin-nav--list__item"><a class="admin-nav--list__item-link" href="<?= BASE_URL. "admin/overview/index.php";?>">Рецензии</a></li>
     </ul>
 </nav>
 <nav class="admin-nav--mobile">
@@ -13,7 +13,7 @@
         <ul class="admin-nav--list--test">
             <li class="admin-nav--list__item" ><a class="admin-nav--list__item-link" href=" <?= BASE_URL."admin/films/index.php"?>">Фильмы</a></li>
             <li class="admin-nav--list__item"><a class="admin-nav--list__item-link" href="<?= BASE_URL. "admin/users/index.php";?>">Пользователи</a></li>
-            <li class="admin-nav--list__item"><a class="admin-nav--list__item-link" href="">Тест</a></li>
+            <li class="admin-nav--list__item"><a class="admin-nav--list__item-link" href="<?= BASE_URL. "admin/overview/index.php";?>">Рецензии</a></li>
         </ul>
     </div>
 

@@ -224,8 +224,6 @@ if($_SERVER['REQUEST_METHOD']==='POST'&&isset($_POST['update-user'])){
             'username'=>$username,
             'password'=>$pass
         ];
-        showArr($arrData);
-        showArr($_POST);
         update('users',$id,$arrData);
         header('location: '.BASE_URL . 'admin/users/index.php');
     }
