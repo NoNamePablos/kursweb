@@ -24,6 +24,9 @@
               <li class="header-nav--item">
                 <a href="<?php echo BASE_URL?>catalog.php" class="header-nav--item__link">Каталог</a>
               </li>
+                <li class="header-nav--item">
+                    <a href="<?php echo BASE_URL?>overview.php" class="header-nav--item__link">Рецензии</a>
+                </li>
             </ul>
           </nav>
         </div>
@@ -45,6 +48,7 @@
                         <a href="<?=BASE_URL.'admin/films/index.php';?>" class="header-second-user--active-login--item">Админка</a>
                     <?php  endif;?>
                     <a href="<?php echo BASE_URL?>catalog.php" class="header-nav--item__link mobile-link">Каталог</a>
+                    <a href="/overview.php" class="header-second-user--active-login--item">Рецензии</a>
                     <a href="/profile.php" class="header-second-user--active-login--item">Профиль</a>
                     <a href="/settings.php" class="header-second-user--active-login--item">Настройки</a>
                     <a href="/logout.php" class="header-second-user--active-login--item">Выйти</a>

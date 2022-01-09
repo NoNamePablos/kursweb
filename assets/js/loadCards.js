@@ -48,7 +48,7 @@ function insert(film){
     let str=`
     <div class="films-item">
                                 <h2 class="films-item--title">
-                                    <a href="http://kursweb1/detalnaya.php?film=${film.id_film}>">
+                                    <a href="http://kursweb1/detalnaya.php?film=${film.id_film}">
                                        ${film.film_name}
                                     </a>
                                 </h2>
@@ -64,12 +64,15 @@ function insert(film){
                                                     <div class="card-bg__info">
                                                         <div class="info--tooltip">
                                                             <div class="info--tooltip__popup">
-
+                                                                 <div class="tooltip-content">
+                                                        <span>${film.created_date}</span>
+                                                        <span>${film.film_description}</span>
+                                                    </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="card-bg__upbg">
-                                                        <a href='http://kursweb1/detalnaya.php?film=${film.id_film}>' class="card-bg__play">
+                                                        <a href='http://kursweb1/detalnaya.php?film=${film.id_film}' class="card-bg__play">
 <svg viewBox="83.1 54.3 61.5 73.1"><polygon points="83.1,54.3 83.1,127.4 144.7,90.9"></polygon></svg>
 </a>
 </div>

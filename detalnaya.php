@@ -32,6 +32,41 @@ $comments=selectAllComments('film_comments','users',$_GET['film']);
   <body>
   <?php include('app/includes/header.php');?>
     <main id="main">
+        <div class="modals">
+            <div class="modal-overlay">
+                <div class="modal modal--1" data-target="form-popup">
+                    <div class="modal-header">
+                        <h3 class="modal-header--title">Вход</h3>
+                        <button class="modal-close btn btn-modal-close">
+                            <span class="MuiButton-label"><svg class="MuiSvgIcon-root c305" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></span>
+                        </button>
+                    </div>
+                    <div class="modal-content">
+                        <form  method="post" class="modal-content-form">
+                            <!---
+                            <div class="header-second--search input input-setting modal-content-form--item">
+                                <input type="text" name="email" class="input-setting-field" placeholder="Логин" value="" required>
+                            </div>
+                            <div class="header-second--search input input-setting modal-content-form--item">
+                                <input type="text" name="password" class="input-setting-field" placeholder="Пароль" value="" required>
+                            </div>
+                            -->
+                            <a href="<?php echo BASE_URL?>login.php" class="btn modal-content-form-btn modal-content-form--item">
+                                <span>Авторизоваться</span>
+                            </a>
+                            <div class="modal-content-form-buttons modal-content-form--item">
+                                <a href="<?php echo BASE_URL?>reset.php" class="btn">
+                                    <span>Забыл пароль</span>
+                                </a>
+                                <a href="<?php echo BASE_URL?>registration.php" class="btn">
+                                    <span>Регистрация</span>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
       <div class="detfilm-container container">
         <div class="detfilm">
                 <aside class="detfilm-aside">

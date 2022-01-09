@@ -56,7 +56,6 @@ include '../../app/controllers/users.php';
                                     <span>Регистрация</span>
                                 </a>
                             </div>
-                            <input type="submit" name="btn-log" class="btn  modal-content-form-btn modal-content-form--item" value="Войти">
                         </form>
                     </div>
                 </div>

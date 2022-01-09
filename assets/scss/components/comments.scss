@@ -16,7 +16,12 @@
     width: 650px;
     align-items: flex-start;
     justify-content: center;
-
+    @include to(720px){
+      width: 100%;
+      & .comment-area{
+        width: 100%;
+      }
+    }
   }
   &--list{
 
@@ -57,6 +62,7 @@
     &--rate{
       height: 39px;
       padding: 0 10px;
+      display: none;
       &_count{
         display: inline-block;
         color: #868686;

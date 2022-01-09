@@ -65,7 +65,6 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['btn-log'])){
         $errMsg="Не все поля заполнены 111!";
     }else{
     $checkAuthMail=selectOne('users',['email'=>$emails]);
-    $errMsg="test!";
     if($checkAuthMail && password_verify($passwordS,$checkAuthMail['password'])){
         $_SESSION['id']=$checkAuthMail['id'];
         $_SESSION['login']=$checkAuthMail['username'];

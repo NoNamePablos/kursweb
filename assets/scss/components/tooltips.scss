@@ -9,6 +9,7 @@
   cursor: default;
   margin-bottom: 4px;
   display: block;
+
   &--wrapper{
     position: absolute;
     top: 25px;
@@ -20,6 +21,25 @@
   }
   &__typeadd{
     background-color: var(--purple);
+  }
+  &-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    & span{
+      font-size: 14px;
+      color: #404040;
+      cursor: default;
+      &:first-child{
+        margin-right: auto;
+        font-style:italic;
+        font-size: 14px;
+        color: #404040;
+        cursor: default;
+
+      }
+
+    }
   }
 }
 .main-sliders-bg {

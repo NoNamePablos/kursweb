@@ -1151,6 +1151,16 @@ main {
 .detfilm {
   display: flex;
 }
+@media screen and (max-width: 720px) {
+  .detfilm {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 720px) {
+  .detfilm-wrapper {
+    margin-top: 20px;
+  }
+}
 .detfilm-container {
   margin-top: 100px;
 }
@@ -1191,6 +1201,12 @@ main {
   width: 20%;
   padding-left: 17px;
   padding-right: 17px;
+}
+@media screen and (max-width: 720px) {
+  .detfilm-aside {
+    width: 100%;
+    padding-left: 0;
+  }
 }
 .detfilm-aside .card-main {
   height: initial;
@@ -1263,9 +1279,18 @@ main {
   width: 650px;
   height: 330px;
 }
-@media (max-width: 768px) {
+@media screen and (max-width: 720px) {
   .detfilm-video--video {
     padding: 0 15px;
+  }
+  .detfilm-video--video video {
+    width: 350px;
+    height: 200px;
+  }
+}
+@media screen and (max-width: 340px) {
+  .detfilm-video--video {
+    padding: 0 5px;
   }
   .detfilm-video--video video {
     width: 270px;
@@ -1753,7 +1778,8 @@ main {
 }
 
 .btn {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   min-height: 16px;
   height: 31px;
   margin: 0;
@@ -1784,6 +1810,9 @@ main {
   transition: opacity 0.2s ease, color 0.2s ease, background 0.3s ease;
   -webkit-tap-highlight-color: transparent;
 }
+.btn-modal-close {
+  padding: 0;
+}
 .btn:hover {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
@@ -1812,6 +1841,23 @@ main {
 }
 .tooltip__typeadd {
   background-color: var(--purple);
+}
+.tooltip-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.tooltip-content span {
+  font-size: 14px;
+  color: #404040;
+  cursor: default;
+}
+.tooltip-content span:first-child {
+  margin-right: auto;
+  font-style: italic;
+  font-size: 14px;
+  color: #404040;
+  cursor: default;
 }
 
 .main-sliders-bg {
@@ -1955,6 +2001,14 @@ main {
   align-items: flex-start;
   justify-content: center;
 }
+@media screen and (max-width: 720px) {
+  .comment-form {
+    width: 100%;
+  }
+  .comment-form .comment-area {
+    width: 100%;
+  }
+}
 .comment-list {
   display: flex;
   flex-direction: column;
@@ -1991,6 +2045,7 @@ main {
 .comment-item--rate {
   height: 39px;
   padding: 0 10px;
+  display: none;
 }
 .comment-item--rate_count {
   display: inline-block;
