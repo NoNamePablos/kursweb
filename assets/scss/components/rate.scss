@@ -1,0 +1,46 @@
+.rate{
+  position: relative;
+  display: block;
+  width: 50%;
+  height: 42px;
+  line-height: 42px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  &__positiv{
+    fill:var(--color-rate-positiv);
+    color: var(--color-rate-positiv);
+  }
+  &__clc{
+    &__positiv{
+      fill:var(--color-rate-positiv);
+      color: var(--color-rate-positiv);
+    }
+    &__negativ{
+      fill:var(--color-rate-negativ);
+      color: var(--color-rate-negativ);
+      & svg{
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &__negativ{
+    fill:var(--color-rate-negativ);
+    color: var(--color-rate-negativ);
+    & svg{
+      transform: rotate(180deg);
+    }
+  }
+  & span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 100%;
+    margin: 0 auto;
+  }
+  & svg{
+    width: 30px;
+    height: 30px;
+  }
+}

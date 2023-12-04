@@ -1,0 +1,26 @@
+// базовые подключения
+
+@import 'vars';
+@import 'mixins';
+@import 'fonts';
+@import 'settings';
+
+// подключения компонентов страницы
+@import 'components/inputs';
+@import 'components/modal';
+@import 'components/header';
+@import 'components/films';
+@import 'components/footer';
+@import 'components/filter';
+@import 'components/catalog-card';
+@import 'components/from-reset';
+@import 'components/profile';
+@import "admin_fims";
+@import "admin";
+@import "components/card_main";
+@import "components/pagination";
+@import "components/buttons";
+@import "components/tooltips";
+@import "components/rate";
+@import "components/comments";
+@import "components/overview";
